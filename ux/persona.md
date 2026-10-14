@@ -1,9 +1,5 @@
 # User Persona
 
-Tài liệu mô tả chân dung người dùng (User Personas), tuyên bố vấn đề và tiêu chí đo lường thành công cho dự án Longvita.
-
----
-
 # Book to App — Nhiệm vụ nội dung 01
 
 ## 1. Chân dung người dùng chính (Primary Persona)
