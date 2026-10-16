@@ -25,23 +25,32 @@
 
 ### 1.2. Navigation Structure
 
+**Screen-count rule:** The inventory contains ten distinct screen designs (`S01` to `S10`). Loading, error, empty, confirmation, and editing states (such as the Edit Ingredient Dialog Overlay on `S07` and the Generating Loading State on `S03`/`S04`) are designed as states or overlays of their parent screens and are not counted as separate screens.
+
+### 1.2. Navigation Structure
+
 ```mermaid
 flowchart TD
     HOME["S01 — Home"]
 
     HOME --> PREF["S02 — Food Preferences"]
     HOME --> CREATE["S03 — Create Meal Plan"]
-    HOME --> KNOW["S08 — Book Knowledge"]
-    HOME --> SAVED["S09 — Saved Plans"]
+    HOME --> SHOP["S08 — Shopping List"]
+    HOME --> KNOW["S09 — Book Knowledge"]
+    HOME --> SAVED["S10 — Saved Plans"]
 
+    PREF --> CREATE
     CREATE --> PLAN["S04 — Weekly Meal Plan"]
     SAVED --> PLAN
 
     PLAN --> RECIPE["S05 — Recipe Details"]
-    PLAN --> INGREDIENTS["S06 — Ingredient Summary"]
-    INGREDIENTS --> SHOP["S07 — Shopping List"]
+    PLAN --> INGREDIENTS["S07 — Ingredient Summary"]
+    INGREDIENTS --> SHOP
 
     RECIPE --> KNOW
+    RECIPE --> ALT["S06 — Meal Alternatives"]
+    ALT --> PLAN
+    ALT --> PREF
 ```
 
 ### 1.3. Navigation Rules
@@ -63,16 +72,16 @@ flowchart TD
 
 ### Happy Path
 
-1. The user opens Home.
+1. The user opens S01 — Home.
 2. The user selects Create Meal Plan.
-3. If preferences are not configured, the user completes S02.
-4. The user confirms the planning settings in S03.
+3. If preferences are not configured, the user completes S02 — Food Preferences.
+4. The user confirms the planning settings in S03 — Create Meal Plan.
 5. The user selects Generate Plan.
 6. S03 displays its loading state while the application processes the request.
-7. On success, S04 displays the weekly meal plan.
+7. On success, S04 — Weekly Meal Plan displays the generated 7-day meal plan.
 8. The user reviews the plan and selects Save Plan.
 9. The application saves the plan and confirms the result.
-10. The user opens Saved Plans and sees the newly saved plan.
+10. The user opens S10 — Saved Plans and sees the newly saved plan.
 
 ### Alternative and Recovery Paths
 
@@ -89,19 +98,19 @@ flowchart TD
     A(["Start: S01 Home"]) --> B["Select Create Meal Plan"]
     B --> C{"Preferences configured?"}
 
-    C -- No --> D["S02: Configure Preferences"]
-    D --> E["S03: Confirm Plan Settings"]
+    C -- No --> D["S02: Food Preferences"]
+    D --> E["S03: Create Meal Plan"]
     C -- Yes --> E
 
     E --> F["Select Generate Plan"]
     F --> G["S03: Loading State"]
     G --> H{"Generation successful?"}
 
-    H -- Yes --> I["S04: Review Weekly Meal Plan"]
-    I --> J["Save Plan"]
+    H -- Yes --> I["S04: Weekly Meal Plan"]
+    I --> J["Select Save Plan"]
     J --> K{"Save successful?"}
 
-    K -- Yes --> L["S09: Saved Plans"]
+    K -- Yes --> L["S10: Saved Plans"]
     L --> M(["End: Plan Saved"])
 
     K -- No --> N["S04: Show Save Error"]
@@ -113,7 +122,7 @@ flowchart TD
     P --> Q{"Recovery action"}
     Q -- Retry --> G
     Q -- Edit Preferences --> D
-    Q -- Cancel --> R(["End: Return to Home"])
+    Q -- Cancel --> R(["End: Return to S01 Home"])
 ```
 
 ## 3. User Flow 2 — Generate and Manage a Shopping List
@@ -124,54 +133,53 @@ flowchart TD
 
 ### Happy Path
 
-1. The user opens a weekly meal plan.
+1. The user opens S04 — Weekly Meal Plan.
 2. The user selects View Ingredients.
-3. S06 displays the ingredients required by the selected plan.
+3. S07 — Ingredient Summary displays the ingredients required by the selected plan.
 4. The application consolidates duplicate ingredients where their units are compatible.
-5. The user reviews quantities and optionally opens the Edit Ingredient dialog.
+5. The user reviews quantities and optionally opens the Edit Ingredient Dialog overlay on S07.
 6. The user saves valid changes.
 7. The user selects Create Shopping List.
-8. S07 displays the consolidated shopping list.
+8. S08 — Shopping List displays the consolidated shopping list grouped by category.
 9. The user checks off purchased ingredients or returns to the weekly plan.
 
 ### Alternative and Recovery Paths
 
-- No plan available: provide a route to create a plan.
-- Empty ingredient result: show an empty state with an action to return to the plan.
-- Invalid quantity: keep the dialog open, explain the validation error, and allow correction.
-- Ingredient removed accidentally: provide Undo when appropriate.
-- List creation failure: retain the ingredient summary and allow the user to retry.
+- Empty ingredient result: Show an empty state on S07 with an action to return to S04 — Weekly Meal Plan.
+- Invalid quantity: Keep the Edit Ingredient Dialog open on S07, explain the validation error in plain language, and allow correction.
+- Ingredient removed accidentally: Provide an Undo snackbar action.
+- List creation failure: Retain S07 — Ingredient Summary and allow the user to retry.
 
 ### Flow Diagram
 
 ```mermaid
 flowchart TD
     A(["Start: S04 Weekly Meal Plan"]) --> B["Select View Ingredients"]
-    B --> C["S06: Ingredient Summary"]
+    B --> C["S07: Ingredient Summary"]
     C --> D{"Ingredients available?"}
 
-    D -- No --> E["Show Empty State"]
-    E --> F["Return to Weekly Plan"]
+    D -- No --> E["S07: Show Empty State"]
+    E --> F["Return to S04 Weekly Meal Plan"]
     F --> Z(["End: Back to Plan"])
 
-    D -- Yes --> G["Review Quantities"]
+    D -- Yes --> G["Review Quantities on S07"]
     G --> H{"Edit an ingredient?"}
 
-    H -- Yes --> I["Open Edit Ingredient Dialog"]
+    H -- Yes --> I["Open Edit Ingredient Dialog Overlay"]
     I --> J{"Input valid?"}
-    J -- No --> K["Show Validation Error"]
+    J -- No --> K["Show Validation Error in Dialog"]
     K --> I
-    J -- Yes --> L["Save Changes"]
+    J -- Yes --> L["Save Changes to S07"]
 
     H -- No --> M["Select Create Shopping List"]
     L --> M
 
     M --> N{"List created successfully?"}
-    N -- Yes --> O["S07: Shopping List"]
+    N -- Yes --> O["S08: Shopping List"]
     O --> P["Check Off Items or Return"]
     P --> Q(["End: Shopping List Ready"])
 
-    N -- No --> R["Show Error and Retry Action"]
+    N -- No --> R["S07: Show Error and Retry Action"]
     R --> M
 ```
 
@@ -183,57 +191,57 @@ flowchart TD
 
 ### Happy Path
 
-1. The user opens the weekly plan.
-2. The user selects a meal to open S05.
+1. The user opens S04 — Weekly Meal Plan.
+2. The user selects a meal card to open S05 — Recipe Details.
 3. The user reviews the recipe and selects its related book reference.
-4. S08 displays the relevant book-related information.
-5. The user returns to S05.
+4. S09 — Book Knowledge displays the relevant Longevity Diet principles and book citations.
+5. The user returns to S05 — Recipe Details.
 6. The user selects Replace Meal.
-7. The application searches its available recipes using the user's configured preferences.
-8. The user selects and confirms an alternative.
+7. S06 — Meal Alternatives displays suitable replacement meals based on the book's substitution rules and the user's preferences.
+8. The user selects and confirms an alternative meal on S06.
 9. The application updates the weekly plan and recalculates its ingredient summary.
-10. S04 displays the updated plan.
+10. S04 — Weekly Meal Plan displays the updated plan.
 
 ### Alternative and Recovery Paths
 
-- No alternatives found: explain the result and allow the user to keep the original meal or revise preferences.
-- Search failure: show an error with Retry.
-- User rejects alternatives: return to the original recipe without changing the plan.
-- Update failure: preserve the original meal and allow the user to retry.
-- Book reference unavailable: explain that a source reference is unavailable and allow the user to return to the recipe.
+- Skip book reference: Proceed directly from S05 — Recipe Details to S06 — Meal Alternatives.
+- No alternatives found on S06: Explain the result and allow the user to keep the original meal or revise preferences in S02 — Food Preferences.
+- User rejects alternatives: Cancel on S06 and return to S05 without changing the plan.
+- Update failure: Preserve the original meal, show an error state on S06, and allow the user to Retry or Cancel.
 
 ### Flow Diagram
 
 ```mermaid
 flowchart TD
+flowchart TD
     A(["Start: S04 Weekly Meal Plan"]) --> B["Select a Meal"]
     B --> C["S05: Recipe Details"]
     C --> D{"Review book reference?"}
 
-    D -- Yes --> E["S08: Book Knowledge"]
-    E --> F["Return to Recipe Details"]
+    D -- Yes --> E["S09: Book Knowledge"]
+    E --> F["Return to S05 Recipe Details"]
     D -- No --> G["Select Replace Meal"]
     F --> G
 
-    G --> H["Search Available Alternatives"]
+    G --> H["S06: Meal Alternatives"]
     H --> I{"Alternatives found?"}
 
-    I -- Yes --> J["Review and Select Alternative"]
+    I -- Yes --> J["Review and Select Alternative on S06"]
     J --> K{"Confirm replacement?"}
     K -- No --> L["Keep Original Meal"]
-    L --> M(["End: Original Plan Preserved"])
+    L --> M(["End: Original Plan Preserved on S04"])
 
     K -- Yes --> N{"Update successful?"}
     N -- Yes --> O["Update Plan and Ingredient Summary"]
     O --> P["S04: Updated Weekly Meal Plan"]
     P --> Q(["End: Replacement Applied"])
 
-    N -- No --> R["Show Error; Preserve Original Meal"]
+    N -- No --> R["S06: Show Error; Preserve Original Meal"]
     R --> S{"Retry?"}
     S -- Yes --> J
     S -- No --> L
 
-    I -- No --> T["Show No-Alternative Message"]
+    I -- No --> T["S06: Show Empty / No-Alternative State"]
     T --> U{"Recovery action"}
     U -- Revise Preferences --> V["S02: Food Preferences"]
     V --> H
@@ -244,9 +252,9 @@ flowchart TD
 
 | Flow | Screens used | Main outcome |
 |---|---|---|
-| Flow 1 — Create and save a weekly meal plan | S01, S02, S03, S04, S09 | A weekly plan is generated and saved, or the user receives a recovery option. |
-| Flow 2 — Generate and manage a shopping list | S04, S06, S07 | A consolidated shopping list is ready to use. |
-| Flow 3 — Review book knowledge and replace a meal | S02, S04, S05, S08 | The user can inspect book-related information and replace a meal, or preserve the original plan. |
+| Flow 1 — Create and save a weekly meal plan | S01, S02, S03, S04, S010 | A weekly plan is generated and saved, or the user receives a recovery option. |
+| Flow 2 — Generate and manage a shopping list | S04, S07, S08 | A consolidated shopping list is ready to use. |
+| Flow 3 — Review book knowledge and replace a meal | S02, S04, S05, S06, S09 | The user can inspect book-related information and replace a meal, or preserve the original plan. |
 
-**Coverage:** All nine screens appear in at least one flow. The ingredient-editing dialog and the loading, empty, and error states belong to their parent screens and are not counted as distinct screens.
+**Coverage:** All ten distinct screens (S01 through S10) appear in at least one flow (S01, S02, S03, S04, S05, S06, S07, S08, S09, S10). The Edit Ingredient Dialog overlay (S07) and the loading, empty, and error states belong to their parent screens and are not counted as distinct screens.
 
