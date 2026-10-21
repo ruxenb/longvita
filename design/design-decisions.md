@@ -17,6 +17,7 @@ Mỗi đề xuất từ AI Critique được nhóm xem xét nghiêm túc, không
 | **D05** | **Finding 2 & 9:** Nâng toàn bộ cỡ chữ nội dung lên $\ge 14\text{sp}$ và vùng chạm nút bấm/checkbox lên $\ge 48\times 48\text{ dp}$. | **ACCEPT**<br>*(Chấp nhận)* | Tuân thủ tuyệt đối WCAG 2.1 AA (1.4.3, 1.4.4) và chuẩn Android Accessibility. Đảm bảo Minh Anh có thể cầm điện thoại bằng một tay để tích chọn nguyên liệu trong siêu thị. | Toàn bộ `S01`–`S10` |
 | **D06** | **Finding 3:** Trạng thái phụ thuộc màu sắc (xanh, vàng, cam). | **ACCEPT**<br>*(Chấp nhận)* | Tuân thủ WCAG 1.4.1 (Không dùng màu làm phương tiện duy nhất). Bổ sung nhãn chữ đi kèm và icon trạng thái (ví dụ: món đã ăn có icon tích `✓` + chữ "Đã ghi nhận"). | `S01`, `S04`, `S08` |
 | **D07** | **Đề xuất AI mở rộng:** Tích hợp tra cứu giá siêu thị và tìm đường đi trong cửa hàng tự động. | **REJECT**<br>*(Từ chối)* | Tính năng thuộc phạm vi e-commerce/bán lẻ, làm loãng mục tiêu cốt lõi của app là "chuyển hóa kiến thức sách trường thọ thành thực đơn" và gây quá tải thời gian làm bài. | Không triển khai |
+| **D08** | **Member 3 visual refinement:** Stitch sử dụng pill và radius lớn cho hầu hết button/card/dialog, tạo cảm giác AI-generated. | **MODIFY**<br>*(Chỉnh sửa)* | Giữ bảng màu và tinh thần organic nhưng chuyển sang radius `4/8/12/16/full`; button/card chuẩn dùng 12px, dialog lớn 16px, full chỉ dành cho chip/segmented control. Đồng thời đổi primary action sang `#476429` và functional border sang `#74796C` để đáp ứng contrast. | Toàn bộ `S01`–`S10`, Page 04–05 |
 
 ---
 
@@ -26,10 +27,10 @@ Mỗi đề xuất từ AI Critique được nhóm xem xét nghiêm túc, không
 
 | Tiêu chí kỹ thuật | Ngưỡng quy định | Kết quả kiểm tra trên Longvita | Bằng chứng / Đánh giá | Trạng thái |
 | :--- | :---: | :--- | :--- | :---: |
-| **Độ tương phản chữ thường** | $\ge 4.5:1$ (WCAG AA) | Chữ chính `#2F3B2A` trên nền kem `#F6F1E7` đạt **7.8:1**; trên nền trắng `#FFFFFF` đạt **10.5:1**. | Kiểm tra bằng Figma Contrast Plugin. Vượt xa chuẩn tối thiểu. | ✅ ĐẠT |
-| **Độ tương phản chữ lớn & UI Controls** | $\ge 3:1$ (WCAG AA) | Nút bấm chính Primary `#6F8F4E` với chữ trắng đạt **3.2:1**; viền input `#DCCDB0` với nền đạt **3.1:1**. | Đảm bảo nút và đường viền input nhận diện rõ ràng. | ✅ ĐẠT |
-| **Kích thước vùng chạm (Touch target)** | $\ge 48\times 48\text{ dp}$ | Mọi nút bấm, icon điều hướng và checkbox ở màn hình `S08` đều có hitbox tối thiểu $48\times 48\text{ dp}$. | Padding tối thiểu 12–16px xung quanh icon/checkbox. | ✅ ĐẠT |
-| **Cỡ chữ nội dung (Body text)** | $\ge 14\text{ sp}$ | Cỡ chữ nội dung nhỏ nhất là $14\text{sp}$ (Secondary labels); nội dung chính $16\text{sp}$; tiêu đề $20–28\text{sp}$. | Kiểm tra bằng Text Styles trên Figma Page 04. | ✅ ĐẠT |
-| **Không phụ thuộc vào màu sắc** | Bắt buộc | Mọi trạng thái (Success, Warning, Error, Selection) đều có Icon + Nhãn chữ giải thích rõ nghĩa. | Thử nghiệm ở chế độ Thang xám (Grayscale test) vẫn nhận diện đầy đủ. | ✅ ĐẠT |
-| **Kiểm tra bố cục ở 360 dp & 412 dp** | Bắt buộc | Thiết kế chuẩn ở `360 x 800 dp` (Android Compact); kiểm tra co giãn trên `412 x 915 dp` (Android Large). | Sử dụng Auto Layout với chế độ `Fill container`, không bị tràn viền (no overflow). | ✅ ĐẠT |
-| **Mô tả hành vi trên màn hình rộng ($\ge 600\text{ dp}$)** | Bắt buộc cho Handoff | Màn hình máy tính bảng: Chia bố cục 2 cột (Cột trái: Danh sách thực đơn tuần; Cột phải: Chi tiết món ăn & nguyên liệu). | Được đặc tả chi tiết trong `handoff/flutter-handoff.md`. | ✅ ĐẠT |
+| **Độ tương phản chữ thường** | $\ge 4.5:1$ (WCAG AA) | `#2F3B2A` trên `#F6F1E7`: **10.48:1**; `#5C6B53` trên `#F6F1E7`: **5.06:1**; chữ trắng trên action green `#476429`: **6.72:1**. | Tính theo WCAG relative luminance; các cặp chuẩn đều vượt 4.5:1. | PASS |
+| **Độ tương phản chữ lớn & UI Controls** | $\ge 3:1$ (WCAG AA) | Functional border `#74796C` trên `#F6F1E7`: **3.97:1**. `#6F8F4E` với chữ trắng chỉ **3.67:1**, nên không dùng cho normal-size action label. | Page 04–05 được chuẩn hóa ở Task 1; kiểm tra lại screen-level ở Task 8. | PASS FOUNDATION |
+| **Kích thước vùng chạm (Touch target)** | $\ge 48\times 48\text{ dp}$ | Component hitbox nền tảng phải giữ tối thiểu 48dp cho icon/day/checkbox/action. | Xác minh master ở Task 1 và toàn bộ screen ở Task 8. | IN PROGRESS |
+| **Cỡ chữ nội dung (Body text)** | $\ge 14\text{ sp}$ | Token body/supporting giữ tối thiểu 14sp; nội dung chính ưu tiên 16sp. | Sẽ kiểm tra instance thực tế trên Final UI ở Task 8. | IN PROGRESS |
+| **Không phụ thuộc vào màu sắc** | Bắt buộc | Mọi trạng thái phải có icon hoặc text label ngoài màu sắc. | Kiểm tra toàn bộ state variant ở Task 7–8. | IN PROGRESS |
+| **Kiểm tra bố cục ở 360 dp & 412 dp** | Bắt buộc | Master thiết kế ở `360 x 800`; 412dp phải dùng Auto Layout/Fill container, không scale toàn frame. | Chưa được xác nhận cho Final UI; Task 8 chịu trách nhiệm QA và evidence. | PENDING QA |
+| **Mô tả hành vi trên màn hình rộng ($\ge 600\text{ dp}$)** | Bắt buộc cho Handoff | Adaptive tablet behavior thuộc phạm vi handoff của Thành viên 4. | Member 3 chỉ bảo đảm component/layout không cản trở adaptive layout. | HANDOFF |
