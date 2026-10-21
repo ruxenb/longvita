@@ -22,7 +22,9 @@ Chi tiết: [`ux/user-flow.md`](ux/user-flow.md).
 
 ## Figma
 
-**Public view-only link:** `TBD — thêm link sau khi nhóm kiểm tra quyền truy cập bằng cửa sổ ẩn danh.`
+**Public view-only link:** [Longvita — UI/UX Design](https://www.figma.com/design/73GTcipwH825N7l501or8D/Longvita---UI-UX-Design?node-id=1-6&p=f)
+
+Link đã mở tới đúng file mà không xuất hiện yêu cầu đăng nhập vào ngày 2026-10-21. Canvas Figma chưa tải hoàn tất trong lần kiểm tra tự động, vì vậy checklist về 6 page, 10 màn hình và prototype vẫn cần được kiểm tra thủ công trong cửa sổ ẩn danh.
 
 Figma cần có đủ sáu page:
 
@@ -32,6 +34,17 @@ Figma cần có đủ sáu page:
 4. `04 Design System`
 5. `05 Components`
 6. `06 Prototype`
+
+### Offline `.fig` verification — 2026-10-21
+
+File local `Longvita - UI_UX Design.fig` export lúc `2026-10-21T11:01:46.418Z` (18:01 giờ Việt Nam), SHA-256 `130F97610C9BCEA0391D619E925F3F005C019E85EFE88B67B2AF46C84643AFE8`, đã được giải mã và đối chiếu ở mức cấu trúc:
+
+- Có đủ 6 page nêu trên; ngoài ra có một canvas nội bộ chứa Variables và Text/Effect styles.
+- `03 Final UI` có đủ `S01–S10`, mỗi màn hình chính ở kích thước `360 x 800`.
+- Có các required states cho `S03`, `S04`, `S06`, `S07` và một frame Responsive QA ở `412 dp`.
+- `05 Components` có Button, TextField, Card, Navigation, AppBar, Dialog, Loading, Empty, Error và các component hỗ trợ.
+- `06 Prototype` có đủ 3 flow starting point; `S07` mở Edit Ingredient Dialog bằng Overlay và `S03 Loading` tự chuyển sang `S04` sau 1 giây.
+- Chưa đạt tiêu chí “không có dead end”: `Flow1 / S03 Generation Error` chỉ ghi nhận Cancel về Home; `Flow1 / S04 Save Error`, `Flow2 / S07 Empty Ingredients`, `Flow2 / S07 Undo Snackbar` và `Flow3 / S06 Update Error` chưa có recovery navigation. Overlay Edit/Validation cũng chưa ghi nhận interaction Save/Cancel/sửa lỗi trong file local.
 
 ## AI Tools Disclosure
 
@@ -68,11 +81,11 @@ Longvita/
 ## Review Checklist
 
 - [ ] Link Figma mở được trong cửa sổ ẩn danh.
-- [ ] Figma có đủ 6 page và 10 màn hình `S01–S10`.
+- [x] Figma có đủ 6 page và 10 màn hình `S01–S10`.
 - [ ] Ba Prototype Flow không có dead end; Back hoạt động đúng.
-- [ ] S07 có Edit Ingredient Dialog dạng Overlay.
-- [ ] S03 Loading chuyển sang S04 Result.
-- [ ] `assets/figma/` có PNG Final UI.
+- [x] S07 có Edit Ingredient Dialog dạng Overlay.
+- [x] S03 Loading chuyển sang S04 Result.
+- [x] `assets/figma/` có đủ 10 PNG Final UI hợp lệ, kích thước `360 x 800`.
 - [ ] `ai-design-log.md` có prompt gốc, ít nhất 3 iterations và ít nhất 5 critique findings.
 - [ ] `design-decisions.md` ghi các quyết định Accept/Modify/Reject.
 - [ ] `screen-spec.md` và `flutter-handoff.md` đã đối chiếu Final UI.
@@ -82,4 +95,6 @@ Longvita/
 - Persona, User Flow và Design System draft: đã có.
 - Stitch initial screenshot: đã có.
 - Screen Specification và Flutter Handoff: draft, chờ đối chiếu Final UI/Figma.
-- Figma public link, Final UI PNG, AI iteration log và final design decisions: chưa hoàn tất trong repository tại thời điểm cập nhật tài liệu này.
+- Figma public link: đã thêm; quyền xem toàn bộ canvas vẫn cần kiểm tra thủ công trong cửa sổ ẩn danh.
+- Final UI PNG: đã thêm đủ `S01–S10` và kiểm tra kích thước/chữ ký ảnh.
+- AI iteration log và final design decisions: chờ đồng bộ phiên bản mới nhất từ `main` trước khi đánh dấu hoàn tất trên nhánh này.

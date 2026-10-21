@@ -1,6 +1,6 @@
 # Screen Specifications
 
-> Trạng thái: **Draft for review**
+> Trạng thái: **Draft — Final UI structure verified; prototype recovery pending**
 >
 > Nguồn hiện có: `ux/persona.md`, `ux/user-flow.md`, `design/DESIGN.md` và `docs/task.md`.
 >
@@ -221,11 +221,11 @@
 
 ## 3. Những điểm cần xác nhận từ Figma
 
-- [ ] Tên và hierarchy chính xác của component trên Page 05.
-- [ ] Khoảng cách, kích thước, grid và max-width thực tế.
+- [x] Tên và hierarchy chính của component đã được đối chiếu với Page 05 trong file `.fig` export ngày 2026-10-21.
+- [x] Kích thước màn hình chính `360 x 800`, 10 bản QA `412 x 915`, content width và các metric token chính đã được đối chiếu.
 - [ ] Bottom navigation xuất hiện trên màn hình nào và tab nào được chọn.
 - [ ] Icon, hình minh họa và asset cuối cùng.
 - [ ] Cách thể hiện Dark mode nếu nằm trong phạm vi bài.
-- [ ] Transition Loading → Result và timing của prototype.
+- [x] Transition `S03 Loading` → `S04 Result` dùng `AFTER_TIMEOUT = 1000 ms`.
 - [ ] Nội dung Dialog, Snackbar và thông báo lỗi đúng với Final UI.
 - [ ] Quy tắc lưu trạng thái Shopping List.

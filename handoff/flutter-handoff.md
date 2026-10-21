@@ -1,6 +1,6 @@
 # Flutter Handoff
 
-> Trạng thái: **Draft for review**. Tài liệu mô tả cấu trúc triển khai từ yêu cầu hiện có. Tên component, spacing và asset phải được đối chiếu lại với Figma trước khi bàn giao cuối.
+> Trạng thái: **Draft — blocked by prototype verification**. Cấu trúc màn hình, component, token chính và 10 PNG Final UI đã được đối chiếu với file `.fig` export lúc 18:01 ngày 2026-10-21. Các recovery path còn thiếu và kiểm thử prototype trực tiếp phải hoàn tất trước khi bàn giao cuối.
 
 ## 1. Phạm vi và nguyên tắc triển khai
 
@@ -32,14 +32,16 @@
 | `spacing.lg` | `32` | `AppSpacing.lg` |
 | `rounded.sm` | `16` | `AppRadius.sm` |
 | `rounded.md` | `28` | `AppRadius.md` |
-| `rounded.lg` | `44` | `AppRadius.lg` |
+| `rounded.lg` | `48` | `AppRadius.lg` |
+
+Các metric đã xác nhận thêm từ Figma Variables: `space/0,4,8,12,16,24,32,48`; `radius/0,16,28,32,48,pill`; touch target `48`; button height `52`; icon size `24`; navigation height `80`; app bar height `64`; stroke `1` và `2`.
 
 ### Lưu ý về token
 
 - `rem` trong `DESIGN.md` không chuyển nguyên xi sang Flutter; designer cần cung cấp giá trị `sp` cuối cùng.
 - `label-caps` hiện tương đương khoảng 12 px, thấp hơn yêu cầu body text tối thiểu 14 sp nếu dùng cho nội dung.
 - Màu `on-primary` và `on-accent` phải được kiểm tra contrast trên nền thực tế trước khi khóa theme.
-- Elevation chưa có thang giá trị định lượng; không tự đặt số cuối cùng trước khi Figma xác nhận.
+- Figma có ba effect style `Longvita/Elevation/0–2`; cần kiểm tra trực quan và lấy thông số shadow chính xác trước khi ánh xạ sang Flutter `Elevation`/`BoxShadow`.
 
 ## 3. Components-to-Widgets mapping
 
@@ -208,10 +210,10 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 
 ## 10. Definition of Done
 
-- [ ] Tất cả `S01–S10` khớp với Figma Page 03.
-- [ ] Component và variant khớp Figma Page 05.
+- [x] Đã xác nhận cấu trúc và kích thước chính của `S01–S10` trong file local từ Figma Page 03.
+- [x] Đã xác nhận tên component và variant chính trong file local từ Figma Page 05.
 - [ ] Ba flow chạy đúng trên Figma Page 06 và khớp navigation contract.
-- [ ] Dialog S07 là Overlay; Loading S03 chuyển sang Result S04.
-- [ ] Token mapping đã thay mọi giá trị `TBD` bằng giá trị được duyệt.
+- [x] Dialog S07 là Overlay; Loading S03 chuyển sang Result S04 sau 1 giây.
+- [x] Token màu và metric chính đã được đối chiếu với Figma Variables; typography/elevation vẫn cần visual QA trước khi khóa implementation.
 - [ ] Accessibility checklist được kiểm tra trên thiết kế cuối.
-- [ ] Link Figma và asset cuối được thêm vào repo.
+- [x] Link Figma và 10 PNG Final UI `S01–S10` đã được thêm vào repo; quyền xem ẩn danh vẫn được theo dõi riêng trong README.

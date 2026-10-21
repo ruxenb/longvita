@@ -2,7 +2,7 @@
 
 **Branch:** `Task_4`
 
-**Ngày cập nhật:** 2026-10-18
+**Ngày cập nhật:** 2026-10-21
 
 **Trạng thái:** Draft for team review
 
@@ -37,7 +37,7 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 
 - Mở rộng phần giới thiệu dự án và Primary Persona.
 - Tóm tắt 3 Core User Flows và Screen Inventory.
-- Thêm vị trí dành cho public Figma link.
+- Thêm public Figma link vào README.
 - Thêm AI Tools Disclosure.
 - Cập nhật Deliverable Map, Review Checklist và trạng thái tài liệu hiện tại.
 
@@ -48,10 +48,21 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - `ux/persona.md`
 - `ux/user-flow.md`
 - `design/DESIGN.md`
+- File local `Longvita - UI_UX Design.fig`, export lúc `2026-10-21T11:01:46.418Z` (18:01 giờ Việt Nam), SHA-256 `130F97610C9BCEA0391D619E925F3F005C019E85EFE88B67B2AF46C84643AFE8`.
+
+### Kết quả đối chiếu file `.fig` ngày 2026-10-21
+
+- Giải mã thành công `2.699` node từ canvas Figma local.
+- Xác nhận đủ 6 page, đủ `S01–S10` trên Final UI và kích thước màn hình chính `360 x 800`.
+- Xác nhận 64 Variables thuộc ba nhóm `Longvita / Primitives`, `Longvita / Color`, `Longvita / Metrics`.
+- Xác nhận component catalog có Button, TextField, Card, Navigation, AppBar, Dialog, Loading, Empty, Error và các component hỗ trợ.
+- Xác nhận ba prototype starting point, Overlay Edit Ingredient tại `S07`, và chuyển tự động `S03 Loading` → `S04` sau 1 giây.
+- Phát hiện các recovery path chưa được nối trong file export mới: `Flow1 / S03 Generation Error` chỉ có Cancel về Home; `Flow1 / S04 Save Error`, `Flow2 / S07 Empty Ingredients`, `Flow2 / S07 Undo Snackbar`, `Flow3 / S06 Update Error` chưa có recovery navigation; Overlay Edit/Validation chưa ghi nhận Save/Cancel/sửa lỗi. Vì vậy chưa đánh dấu ba flow là hoàn tất hoặc không có dead end.
+- Đưa 10 PNG Final UI từ nhánh `origin/member3-ui` vào `assets/figma/`; xác nhận `10/10` là PNG hợp lệ, kích thước `360 x 800`, không có file rỗng và có SHA-256 riêng biệt.
 
 ## 4. Giả định và giới hạn
 
-- Nội dung được viết theo User Flow và yêu cầu rubric hiện có, chưa phải xác nhận trực quan từ Final UI.
+- Nội dung ban đầu được viết theo User Flow và rubric; cấu trúc chính đã được đối chiếu với file `.fig` export ngày 2026-10-21, nhưng vẫn cần visual QA và chạy prototype trực tiếp trong Figma.
 - Tên Flutter widget là đề xuất triển khai, không phải quyết định bắt buộc.
 - Không tự đặt giá trị spacing, typography, elevation hoặc max-width còn thiếu.
 - Không tuyên bố Figma, prototype hoặc accessibility đã được kiểm thử khi chưa có bằng chứng.
@@ -59,12 +70,10 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 
 ## 5. Việc còn chờ nhóm thiết kế
 
-- Public view-only Figma link đã kiểm tra bằng cửa sổ ẩn danh.
-- Final UI `S01–S10` và các trạng thái liên quan.
-- Component names, variants và token values thực tế trên Figma.
+- Kiểm tra lại public Figma link bằng cửa sổ ẩn danh: lần kiểm tra tự động đã mở đúng file và không hiện yêu cầu đăng nhập, nhưng canvas chưa tải hoàn tất nên chưa xác nhận được toàn bộ nội dung.
 - Icon, font, illustration và ảnh món ăn chính thức.
-- Export PNG vào `assets/figma/`.
-- Prototype cho 3 flows, Dialog Overlay S07 và transition S03 → S04.
+- Chạy trực tiếp 3 flow trong Figma để kiểm tra toàn bộ click target, nút Back và trạng thái kết thúc.
+- Nối các recovery navigation còn thiếu và interaction Save/Cancel/sửa lỗi cho Overlay Edit/Validation.
 - Quyết định cuối về Dark mode, Shopping List persistence và responsive max-width.
 
 ## 6. Hướng dẫn review
