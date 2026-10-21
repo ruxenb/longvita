@@ -1,89 +1,112 @@
 # Longvita
 
-Longvita là dự án ứng dụng di động Android hỗ trợ chuyển đổi kiến thức dinh dưỡng trường thọ từ sách (*La dieta della longevità* — TS. Valter Longo) thành thực đơn hằng tuần, công thức nấu ăn chi tiết và danh sách mua sắm tối ưu có thể áp dụng trực tiếp vào đời sống thực tế.
-
----
+Longvita là dự án ứng dụng di động Android hỗ trợ chuyển đổi kiến thức dinh dưỡng trường thọ từ sách (*La dieta della longevità* — TS. Valter Longo) thành thực đơn hằng tuần, công thức nấu ăn chi tiết và danh sách mua sắm có thể áp dụng trực tiếp.
 
 ## 1. User Personas
 
-* **Primary Persona (Chân dung chính):** **Minh Anh, 28 tuổi** — Nhân viên văn phòng bận rộn (nhóm tuổi `< 65`), muốn cải thiện chế độ dinh dưỡng, tiết kiệm thời gian lên thực đơn tuần và đi chợ thuận tiện bằng thao tác một tay.
-* **Secondary Persona (Chân dung phụ):** **Bác Trần Văn Hoàng, 67 tuổi** — Cán bộ hưu trí (nhóm tuổi `≥ 65`), quan tâm phòng ngừa bệnh mạn tính, duy trì cơ bắp chống teo cơ (sarcopenia), cần giao diện chữ to, dễ đọc, độ tương phản cao và minh bạch nguồn gốc món ăn từ sách.
+- **Primary Persona:** **Minh Anh, 28 tuổi** — nhân viên văn phòng bận rộn, muốn cải thiện dinh dưỡng, tiết kiệm thời gian lên thực đơn tuần và đi chợ thuận tiện bằng thao tác một tay.
+- **Secondary Persona:** **Bác Trần Văn Hoàng, 67 tuổi** — cán bộ hưu trí quan tâm phòng ngừa bệnh mạn tính và duy trì cơ bắp, cần giao diện chữ lớn, dễ đọc, tương phản cao và minh bạch nguồn món ăn.
 
-Chi tiết đầy đủ: [`ux/persona.md`](ux/persona.md).
+Chi tiết: [`ux/persona.md`](ux/persona.md).
 
----
+## 2. Core User Flows
 
-## 2. Core User Flows (3 Luồng chính)
+1. **Flow 1 — Lập và lưu thực đơn:** `S01 → S02 → S03 → S04 → S10`.
+2. **Flow 2 — Tổng hợp nguyên liệu và đi chợ:** `S04 → S07 → S08`.
+3. **Flow 3 — Tra cứu sách và thay món:** `S04 → S05 → S09/S06 → S04`.
 
-1. **Flow 1 — Lập & Lưu thực đơn 7 ngày:** `S01` Home → `S02` Food Preferences → `S03` Create Meal Plan → `S04` Weekly Meal Plan → `S10` Saved Plans.
-2. **Flow 2 — Tổng hợp nguyên liệu & Đi chợ:** `S04` Weekly Meal Plan → `S07` Ingredient Summary (kèm Edit Ingredient Dialog Overlay) → `S08` Shopping List.
-3. **Flow 3 — Tra cứu sách & Thay thế món ăn:** `S04` Weekly Meal Plan → `S05` Recipe Details → `S09` Book Knowledge → `S06` Meal Alternatives → `S04` Weekly Meal Plan.
+Chi tiết: [`ux/user-flow.md`](ux/user-flow.md).
 
-Chi tiết sơ đồ Mermaid và ma trận luồng: [`ux/user-flow.md`](ux/user-flow.md).
+## 3. Screen Inventory
 
----
+Ứng dụng có đúng 10 màn hình độc lập:
 
-## 3. Screen Inventory (10 Màn hình độc lập)
+- `S01` Home Dashboard
+- `S02` Food Preferences
+- `S03` Create Meal Plan
+- `S04` Weekly Meal Plan
+- `S05` Recipe Details
+- `S06` Meal Alternatives
+- `S07` Ingredient Summary
+- `S08` Shopping List
+- `S09` Book Knowledge
+- `S10` Saved Plans
 
-Ứng dụng bao gồm đúng 10 màn hình độc lập từ `S01` đến `S10`:
-* `S01` — Home Dashboard
-* `S02` — Food Preferences
-* `S03` — Create Meal Plan
-* `S04` — Weekly Meal Plan
-* `S05` — Recipe Details
-* `S06` — Meal Alternatives
-* `S07` — Ingredient Summary
-* `S08` — Shopping List
-* `S09` — Book Knowledge
-* `S10` — Saved Plans
-
-*(Các trạng thái Loading, Empty, Error, Confirmation và Edit Ingredient Dialog Overlay được thiết kế gắn liền với màn hình cha tương ứng, không tính là màn hình độc lập).*
-
----
+Loading, Empty, Error, Confirmation và Edit Ingredient Dialog là state/overlay của màn hình cha, không tính là màn hình độc lập.
 
 ## 4. Figma Design & Prototype
 
-* **Public View-Only Link:** [Longvita — UI/UX Design on Figma](https://www.figma.com/design/73GTcipwH825N7l501or8D/Longvita---UI-UX-Design?node-id=0-1&t=V1zFv28huRfnPfb8-1)
-* *(Đã kiểm tra và mở được ở chế độ Ẩn danh / Incognito window).*
+**Public view-only link:** [Longvita — UI/UX Design](https://www.figma.com/design/73GTcipwH825N7l501or8D/Longvita---UI-UX-Design?node-id=0-1)
 
-Cấu trúc 6 Pages chuẩn trên Figma:
-1. `01 User Flow` — Sơ đồ điều hướng và luồng trải nghiệm người dùng
-2. `02 Wireframe` — Khung dây Low-fidelity cho 10 màn hình
-3. `03 Final UI` — Thiết kế hoàn chỉnh 10 màn hình chuẩn 360x800 dp cùng các State variants bên cạnh
-4. `04 Design System` — Hệ thống Tokens (Variables / Styles: Color, Typography, Spacing, Radius, Elevation)
-5. `05 Components` — 9 nhóm Component hoàn chỉnh với Auto Layout và Variants
-6. `06 Prototype` — Nối dây tương tác 3 luồng hoàn chỉnh, Dialog Overlay và Loading transition
+Nhóm ghi nhận link đã mở được ở chế độ ẩn danh. Khi nghiệm thu cuối, cần mở lại bằng cửa sổ ẩn danh trên thiết bị không đăng nhập để tránh rủi ro thay đổi quyền chia sẻ.
 
----
+Figma có sáu page:
 
-## 5. AI Tools Disclosure (Công khai sử dụng AI)
+1. `01 User Flow`
+2. `02 Wireframe`
+3. `03 Final UI`
+4. `04 Design System`
+5. `05 Components`
+6. `06 Prototype`
 
-* **Google Stitch:** Hỗ trợ tạo giao diện ban đầu và thực hiện 3 vòng lặp tinh chỉnh thiết kế (`v0` → `v1` → `v2` → `v3`). Bằng chứng ảnh và mã nguồn lưu tại [`assets/stitch/`](assets/stitch/).
-* **AI Critique:** Đánh giá giao diện theo 10 nguyên tắc Nielsen Heuristics, tiêu chuẩn Accessibility (WCAG AA/AAA) và nhu cầu của Persona. Toàn bộ câu lệnh nguyên văn và phân tích được ghi tại [`ai/ai-design-log.md`](ai/ai-design-log.md).
-* **Design Decisions:** Toàn bộ đề xuất từ AI đều được nhóm phản biện và phân loại quyết định `Accept`, `Modify` hoặc `Reject` với lý do bảo vệ cụ thể tại [`design/design-decisions.md`](design/design-decisions.md).
+### Offline `.fig` verification — 2026-10-21
 
----
+File `Longvita - UI_UX Design.fig` export lúc `2026-10-21T11:01:46.418Z` (18:01 giờ Việt Nam), SHA-256 `130F97610C9BCEA0391D619E925F3F005C019E85EFE88B67B2AF46C84643AFE8`, đã được giải mã và đối chiếu ở mức cấu trúc:
 
-## 6. Deliverable Map (Bản đồ thư mục dự án)
+- Có đủ 6 page, 10 Final UI master `S01–S10` ở `360 x 800` và 10 bản Responsive QA ở `412 x 915`.
+- Có 9 required state frame cho `S03`, `S04`, `S06`, `S07`; 64 Variables và 81 component symbols.
+- Có 3 prototype starting point; `S07` mở Edit Ingredient Dialog bằng Overlay; `S03 Loading` tự chuyển sang `S04` sau `1000 ms`.
+- Chưa đạt tiêu chí không có dead end: `S03 Generation Error` chỉ ghi nhận Cancel về Home; `S04 Save Error`, `S07 Empty Ingredients`, `S07 Undo Snackbar`, `S06 Update Error` và Edit/Validation Overlay còn thiếu recovery interaction trong file export.
+
+## 5. AI Tools Disclosure
+
+- **Google Stitch:** tạo giao diện ban đầu và ba vòng lặp tinh chỉnh; bằng chứng lưu trong [`assets/stitch/`](assets/stitch/).
+- **AI critique:** đánh giá Nielsen Heuristics, Accessibility và sự phù hợp Persona; prompt và phân tích lưu tại [`ai/ai-design-log.md`](ai/ai-design-log.md).
+- **Design decisions:** quyết định `Accept`, `Modify`, `Reject` và lý do lưu tại [`design/design-decisions.md`](design/design-decisions.md).
+
+AI hỗ trợ quá trình thiết kế nhưng không thay thế quyết định của nhóm.
+
+## 6. Deliverable Map
 
 ```text
 Longvita/
-├── README.md                         # Tổng quan dự án, Persona, Figma link, AI disclosure
+├── README.md
 ├── ux/
-│   ├── persona.md                    # Primary & Secondary Persona, Problem statements, Metrics
-│   └── user-flow.md                  # Information Architecture, 3 User flows, Flow-to-screen
+│   ├── persona.md
+│   └── user-flow.md
 ├── design/
-│   ├── DESIGN.md                     # Quy chuẩn Design tokens (Organic / Biomorphic)
-│   ├── screen-spec.md                # Đặc tả chi tiết 10 màn hình S01-S10
-│   └── design-decisions.md           # Nhật ký quyết định thiết kế Accept/Modify/Reject
+│   ├── DESIGN.md
+│   ├── screen-spec.md
+│   └── design-decisions.md
 ├── ai/
-│   └── ai-design-log.md              # Prompt gốc, 3 iterations và Nielsen critique
+│   └── ai-design-log.md
 ├── assets/
-│   ├── stitch/                       # Ảnh màn hình và mã HTML từ Google Stitch (v0-v3)
-│   └── figma/                        # Ảnh PNG xuất từ Final UI và Design system
+│   ├── stitch/
+│   └── figma/
 ├── handoff/
-│   └── flutter-handoff.md            # Tài liệu bàn giao Flutter (Tokens & Components mapping)
+│   └── flutter-handoff.md
 └── docs/
-    ├── task.md                       # Bảng phân công 4 gói việc & 12 slide thuyết trình
-    └── work-sequence.md              # Lộ trình 10 ngày và mốc kiểm tra
+    ├── task.md
+    ├── work-sequence.md
+    └── task-4-worklog.md
 ```
+
+## 7. Review Checklist
+
+- [x] Public Figma link đã được thêm; cần kiểm tra lại quyền ẩn danh ngay trước khi nộp.
+- [x] Figma có đủ 6 page và 10 màn hình `S01–S10`.
+- [ ] Ba Prototype Flow không có dead end; Back và recovery path hoạt động đúng.
+- [x] `S07` có Edit Ingredient Dialog dạng Overlay.
+- [x] `S03 Loading` chuyển sang `S04 Result` sau `1000 ms`.
+- [x] `assets/figma/` có đủ 10 PNG Final UI hợp lệ, kích thước `360 x 800`.
+- [x] `ai-design-log.md` có prompt gốc, ba iterations và ít nhất năm critique findings.
+- [x] `design-decisions.md` ghi các quyết định `Accept`/`Modify`/`Reject`.
+- [x] Cấu trúc `screen-spec.md` và `flutter-handoff.md` đã được đối chiếu với Final UI, component và token.
+- [x] Design accessibility có bằng chứng về contrast, text `>=14 sp`, touch target `>=48 dp`, non-color cues và layout `360/412`.
+- [ ] Prototype recovery chưa được xác nhận hoàn tất; Flutter semantics/focus/screen-reader behavior là yêu cầu downstream, không phải kết quả có thể chứng minh từ thiết kế tĩnh.
+
+## 8. Current Documentation Status
+
+- Persona, User Flow, AI log, Design Decisions, Final UI PNG, Screen Specification và Flutter Handoff đã có trong nhánh `Task_4`.
+- Screen Specification và Flutter Handoff vẫn ở trạng thái Draft có kiểm soát do prototype recovery và hai quyết định responsive/data chưa được xác nhận hoàn tất.
+- Không đổi tài liệu sang `Final` trước khi các mục chưa đánh dấu ở checklist được xử lý và kiểm tra lại.
