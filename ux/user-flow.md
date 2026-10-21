@@ -68,7 +68,7 @@ flowchart TD
 
 **Start:** S01 — Home  
 **Goal:** Generate and save a suggested seven-day meal plan.  
-**End:** S09 — Saved Plans, with the newly saved plan available.
+**End:** S10 — Saved Plans, with the newly saved plan available.
 
 ### Happy Path
 
@@ -129,7 +129,7 @@ flowchart TD
 
 **Start:** S04 — Weekly Meal Plan  
 **Goal:** Consolidate ingredients from the selected plan and prepare a shopping list.  
-**End:** S07 — Shopping List, with the list ready to use.
+**End:** S08 — Shopping List, with the list ready to use.
 
 ### Happy Path
 
@@ -213,7 +213,6 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-flowchart TD
     A(["Start: S04 Weekly Meal Plan"]) --> B["Select a Meal"]
     B --> C["S05: Recipe Details"]
     C --> D{"Review book reference?"}
@@ -252,7 +251,7 @@ flowchart TD
 
 | Flow | Screens used | Main outcome |
 |---|---|---|
-| Flow 1 — Create and save a weekly meal plan | S01, S02, S03, S04, S010 | A weekly plan is generated and saved, or the user receives a recovery option. |
+| Flow 1 — Create and save a weekly meal plan | S01, S02, S03, S04, S10 | A weekly plan is generated and saved, or the user receives a recovery option. |
 | Flow 2 — Generate and manage a shopping list | S04, S07, S08 | A consolidated shopping list is ready to use. |
 | Flow 3 — Review book knowledge and replace a meal | S02, S04, S05, S06, S09 | The user can inspect book-related information and replace a meal, or preserve the original plan. |
 
