@@ -224,3 +224,23 @@ High-resolution screenshots of Flow 1, Flow 2, Flow 3, Required States and Respo
 All ten deliverable PNGs were re-exported from the latest Figma masters after the polish pass. Verification remains `10/10` valid PNG signatures, `10/10` at `360x800`, `0` empty files and `10/10` unique SHA-256 hashes.
 
 Final regression after the pixel-polish pass also synchronized 52 remaining 12–13sp custom labels in legacy state/prototype clones to 14sp. The complete regression set now reports `0` non-icon text below 14sp, `0` text overflow findings and `0` audited interactive targets below 48dp across masters, responsive copies, states and prototype. Prototype integrity remains unchanged with `3` Flow Starting Points, `42` meaningful interaction sources, the `1000ms` Loading-to-result timeout and the real Edit Ingredient overlay interaction all verified.
+
+
+## 17. Deep layout integrity and visual-balance audit
+
+A dedicated post-polish audit reviewed geometry, visual balance, distortion risk, whitespace, alignment and Figma-canvas organization across the 10 Final UI masters, 10 responsive 412dp copies, 9 required states and all prototype clones.
+
+Corrections made:
+- Re-centered the S04 seven-day selector. At 360dp the 336dp selector is now symmetrically centered with 12dp screen-side margins while preserving seven 48x48dp targets; at 412dp it uses a 360dp centered selector with integer 4dp spacing and no fractional target positions.
+- Restored S05/S06/S09 secondary CTAs from manually resized 52dp back to the 56dp `Longvita/Button` component-master height in master, 412dp QA and prototype copies.
+- Normalized S05, S06 and S08 Content Auto Layout spacing to the 8dp design token, including related S06 states/prototype clones, improving vertical rhythm without creating overflow.
+- Removed the redundant background `Keep Original` button from S06 Update Error so the dialog contains the only visible recovery action with that label.
+
+Verified intentional layout decisions:
+- All standard content columns retain 16dp left/right margins; full-width cards and CTAs align to the same content column.
+- Bottom navigation bars remain anchored exactly to the screen bottom and screen-width.
+- Larger blank areas on short-content screens (especially S08/S10 and taller 412dp QA screens) remain intentionally top-aligned instead of stretching card heights or inserting decorative filler. This preserves hierarchy and supports future variable-length content.
+- No component instance is scaled or rotated. Food imagery uses `FILL`, not `STRETCH`, so cropping can occur but aspect ratio is not geometrically distorted.
+- Figma canvas organization remains aligned: Flow sections use consistent row baselines and 30dp inter-screen gaps; required states use a 3x3 grid with equal 30dp column gaps and 70dp row gaps; 412dp QA uses two aligned rows with equal 33dp column gaps.
+
+Final regression after these changes: 0 geometry issues, 0 text overflow findings, 0 sub-14sp custom text in audited deliverables/prototype, 0 scaled/rotated instances, all audited secondary CTAs match the 56dp component master, all S04 day targets use integer positions, and the three prototype Flow Starting Points plus Loading timeout/Edit Overlay remain intact.
