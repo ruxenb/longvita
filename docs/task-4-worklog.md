@@ -48,6 +48,7 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - `ux/persona.md`
 - `ux/user-flow.md`
 - `design/DESIGN.md`
+- `ai/ai-design-log.md` và `design/design-decisions.md` từ `origin/main` commit `838aa31`.
 - File local `Longvita - UI_UX Design.fig`, export lúc `2026-10-21T11:01:46.418Z` (18:01 giờ Việt Nam), SHA-256 `130F97610C9BCEA0391D619E925F3F005C019E85EFE88B67B2AF46C84643AFE8`.
 
 ### Kết quả đối chiếu file `.fig` ngày 2026-10-21
@@ -59,6 +60,7 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - Xác nhận ba prototype starting point, Overlay Edit Ingredient tại `S07`, và chuyển tự động `S03 Loading` → `S04` sau 1 giây.
 - Phát hiện các recovery path chưa được nối trong file export mới: `Flow1 / S03 Generation Error` chỉ có Cancel về Home; `Flow1 / S04 Save Error`, `Flow2 / S07 Empty Ingredients`, `Flow2 / S07 Undo Snackbar`, `Flow3 / S06 Update Error` chưa có recovery navigation; Overlay Edit/Validation chưa ghi nhận Save/Cancel/sửa lỗi. Vì vậy chưa đánh dấu ba flow là hoàn tất hoặc không có dead end.
 - Đưa 10 PNG Final UI từ nhánh `origin/member3-ui` vào `assets/figma/`; xác nhận `10/10` là PNG hợp lệ, kích thước `360 x 800`, không có file rỗng và có SHA-256 riêng biệt.
+- Đồng bộ `origin/main` vào `Task_4`; giữ nội dung Persona phụ, AI log ba iterations, chín critique findings, Design Decisions và User Flow đã sửa đúng `S10`/`S08`.
 
 ## 4. Giả định và giới hạn
 
