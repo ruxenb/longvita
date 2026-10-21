@@ -9,7 +9,7 @@
 ## 1. Quy ước chung
 
 - Nền tảng: ứng dụng Android, thiết kế chính ở `360 x 800 dp` và kiểm tra thêm ở `412 dp`.
-- Với màn hình rộng `>= 600 dp`, giới hạn chiều rộng nội dung để giữ khả năng đọc; giá trị cụ thể chờ Final UI xác nhận.
+- Với màn hình rộng `>= 600 dp`, căn giữa vùng nội dung và giới hạn `max-width: 600 dp`. Form và nội dung đọc dài tiếp tục dùng một cột; chỉ dùng hai cột cho nhóm card khi không phá thứ tự đọc và thao tác.
 - Vùng chạm tối thiểu: `48 x 48 dp`.
 - Cỡ chữ nội dung tối thiểu: `14 sp`.
 - Độ tương phản: chữ thường `>= 4.5:1`; chữ lớn và thành phần điều khiển `>= 3:1`.
@@ -182,7 +182,7 @@
 - Back → `S07` hoặc màn hình nguồn.
 - Điều hướng chính → các destination cấp cao theo Final UI.
 
-**Trạng thái:** Default, Partially completed, Completed và Empty. Quy tắc lưu trạng thái checkbox chờ nhóm xác nhận.
+**Trạng thái:** Default, Partially completed, Completed và Empty. Trạng thái check/uncheck được lưu riêng theo từng Shopping List và được khôi phục khi người dùng đóng rồi mở lại danh sách. Shopping List mới bắt đầu với toàn bộ item chưa được check.
 
 ### S09 — Book Knowledge
 
@@ -228,4 +228,4 @@
 - [x] Design System xác định theme hiện tại là **Light**; Dark mode không thuộc phạm vi bàn giao hiện tại.
 - [x] Transition `S03 Loading` → `S04 Result` dùng `AFTER_TIMEOUT = 1000 ms`.
 - [x] Nội dung và bố cục Dialog, Snackbar, Empty/Error state đã được kiểm tra trực quan; interaction recovery vẫn theo dõi riêng trong Prototype checklist.
-- [ ] Quy tắc lưu trạng thái Shopping List.
+- [x] Shopping List lưu trạng thái checkbox theo từng danh sách; danh sách mới bắt đầu ở trạng thái chưa check.

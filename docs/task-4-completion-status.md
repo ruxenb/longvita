@@ -1,18 +1,19 @@
 # Task 4 — Trạng thái hoàn thiện và phân công phần còn lại
 
 **Nhánh kiểm tra:** `Task_4`  
-**Ngày cập nhật:** 21/10/2026  
+**Ngày cập nhật:** 22/10/2026
 **Phụ trách:** Thành viên 4 — Technical Writer & Flutter Handoff
 
 ## 1. Kết luận hiện tại
 
 Phần lớn Task 4 đã có đủ bằng chứng từ repository và file Figma export để hoàn thiện tài liệu bàn giao. Các tài liệu về 10 màn hình, design system, component, token, accessibility ở mức thiết kế và ảnh Final UI đã được xác nhận.
 
-Task 4 **chưa thể chuyển hoàn toàn sang trạng thái Final** vì còn ba quyết định/kiểm tra thiết kế chính:
+Task 4 **chưa thể chuyển hoàn toàn sang trạng thái Final** vì còn phải hoàn thiện và chạy kiểm tra các recovery path trong Figma Prototype.
 
-1. Chạy và sửa các recovery path còn thiếu trong Figma Prototype.
-2. Chốt quy tắc responsive cho màn hình rộng `>= 600 dp`.
-3. Chốt quy tắc lưu trạng thái checkbox của Shopping List.
+Hai quyết định đặc tả trước đó đã được chốt ngày 21/10/2026:
+
+1. Màn hình rộng `>= 600 dp` sử dụng vùng nội dung có `max-width: 600 dp`.
+2. Trạng thái checkbox được lưu riêng theo từng Shopping List và vẫn được giữ khi người dùng thoát rồi mở lại danh sách.
 
 Ngoài ra, accessibility ở mức Flutter như semantics, focus order và screen reader chỉ có thể kiểm thử sau khi có source code ứng dụng.
 
@@ -46,17 +47,18 @@ Ngoài ra, accessibility ở mức Flutter như semantics, focus order và scree
 
 ### Từ file Figma export mới nhất
 
+- Export lúc `2026-10-21T21:54:03.731Z` (04:54 ngày 22/10/2026, giờ Việt Nam), SHA-256 `066794C221D028425032A777A0FBD55C034AFA24E3D0C29E3441E2964FA042AD`.
 - Giải mã được 2.699 node.
 - Có đủ sáu page và đủ `S01–S10`.
 - Có ba prototype starting point.
 - Xác nhận Overlay Edit Ingredient tại `S07`.
 - Xác nhận `S03 Loading` tự chuyển sang `S04` sau một giây.
 
-## 3. Những phần Codex có thể thực hiện
+## 3. Những phần tài liệu đã hoàn thiện
 
-### 3.1. Chốt tài liệu responsive `>= 600 dp`
+### 3.1. Quy tắc responsive `>= 600 dp` — đã chốt
 
-Codex có thể cập nhật toàn bộ Screen Spec và Flutter Handoff sau khi nhóm đồng ý quy tắc sau:
+Nhóm đã đồng ý quy tắc sau:
 
 - `< 600 dp`: bố cục một cột, cuộn dọc, padding theo design token.
 - `>= 600 dp`: căn giữa nội dung với `max-width: 600 dp`.
@@ -64,30 +66,26 @@ Codex có thể cập nhật toàn bộ Screen Spec và Flutter Handoff sau khi 
 - Chỉ chuyển nhóm card sang hai cột khi không làm thay đổi thứ tự nội dung và thao tác.
 - Dialog phải nằm trong viewport và cho phép cuộn khi chiều cao bị giới hạn.
 
-Phần này Codex có thể tự sửa tài liệu, checklist và mapping Flutter; nhóm chỉ cần xác nhận quyết định thiết kế.
+Quy tắc này đã được đồng bộ vào Screen Spec, Flutter Handoff, README và worklog.
 
-### 3.2. Chốt quy tắc lưu Shopping List
+### 3.2. Quy tắc lưu Shopping List — đã chốt
 
-Codex có thể cập nhật đặc tả theo phương án đề xuất:
+Nhóm đã đồng ý hành vi sau:
 
 - Trạng thái check/uncheck được lưu theo từng Shopping List.
 - Trạng thái vẫn còn khi đóng rồi mở lại danh sách.
 - Shopping List mới bắt đầu với toàn bộ item chưa được check.
-- Có thao tác `Clear completed` hoặc `Reset` nếu thiết kế cho phép.
 - Flutter lưu qua repository/local persistence; UI không phụ thuộc trực tiếp vào công nghệ lưu trữ cụ thể.
 
-Phần này Codex có thể hoàn thiện trong tài liệu ngay sau khi nhóm xác nhận hành vi mong muốn.
+Quy tắc persistence đã được đồng bộ vào Screen Spec, Flutter Handoff, README và worklog. `Clear completed` hoặc `Reset` là chức năng tùy chọn, không phải điều kiện bắt buộc để hoàn thành Task 4 nếu Final UI không thiết kế hai thao tác này.
 
-### 3.3. Hoàn thiện bộ tài liệu Task 4
+### 3.3. Trạng thái bộ tài liệu Task 4
 
-Sau khi hai quyết định trên và Prototype được xác nhận, Codex có thể:
+Các phần không phụ thuộc Prototype đã được cập nhật. Sau khi Prototype được xác nhận, phần còn lại là:
 
-- Xóa các nhãn `TBD` không còn cần thiết.
-- Cập nhật `design/screen-spec.md`.
-- Cập nhật `handoff/flutter-handoff.md`.
-- Cập nhật `docs/task-4-worklog.md` và README checklist.
+- Đánh dấu Prototype checklist hoàn tất.
+- Ghi lại kết quả chạy ba flow.
 - Đổi trạng thái tài liệu từ Draft sang Final.
-- Commit và push lên nhánh `Task_4` để nhóm review.
 
 ## 4. Những phần cần thao tác thủ công hoặc cần quyền chỉnh sửa Figma
 
@@ -134,13 +132,12 @@ Các mục này cần source code Flutter và thiết bị/emulator để triể
 
 ## 5. Phân công đề xuất
 
-### Codex / Thành viên 4 có thể làm ngay
+### Codex / Thành viên 4 đã thực hiện
 
-- Hoàn thiện đặc tả responsive sau khi nhóm duyệt giá trị `max-width`.
-- Hoàn thiện đặc tả Shopping List persistence sau khi nhóm duyệt hành vi.
-- Đồng bộ các quyết định vào Screen Spec, Flutter Handoff, README và worklog.
-- Cập nhật checklist và trạng thái Final khi đã có bằng chứng Prototype.
-- Commit/push tài liệu lên nhánh `Task_4`.
+- [x] Đồng bộ quy tắc `max-width: 600 dp` vào tài liệu handoff.
+- [x] Đồng bộ quy tắc lưu checkbox theo từng Shopping List vào tài liệu handoff.
+- [x] Đồng bộ các quyết định vào Screen Spec, Flutter Handoff, README và worklog.
+- [ ] Cập nhật checklist Prototype và trạng thái Final sau khi có bằng chứng chạy thành công.
 
 ### Thành viên có quyền Edit Figma cần thực hiện
 
@@ -156,13 +153,11 @@ Các mục này cần source code Flutter và thiết bị/emulator để triể
 - Triển khai persistence theo đặc tả đã được nhóm chốt.
 - Kiểm thử responsive trên emulator/device thật.
 
-## 6. Quyết định nhóm cần xác nhận
+## 6. Quyết định và việc đang chờ
 
-Nhóm chỉ cần trả lời ba điểm sau để Task 4 có thể tiếp tục:
-
-1. Có duyệt `max-width: 600 dp` cho màn hình `>= 600 dp` hay chọn giá trị khác?
-2. Shopping List có lưu checkbox sau khi thoát/mở lại không, và có cần `Clear completed`/`Reset` không?
-3. Ai có quyền Edit Figma để sửa và chạy lại các recovery path trong Prototype?
+- [x] Đã duyệt `max-width: 600 dp` cho màn hình `>= 600 dp`.
+- [x] Đã duyệt lưu checkbox theo từng Shopping List, kể cả sau khi thoát và mở lại.
+- [ ] Prototype đang được sửa; cần chạy lại ba flow sau khi sửa xong và ghi nhận kết quả.
 
 ## 7. Điều kiện để đánh dấu Task 4 hoàn thành
 
@@ -171,8 +166,8 @@ Nhóm chỉ cần trả lời ba điểm sau để Task 4 có thể tiếp tục
 - [x] Đủ mapping Components → Flutter Widgets.
 - [x] Có 10 PNG Final UI hợp lệ.
 - [x] Có bằng chứng typography, elevation, component variants và design accessibility.
-- [ ] Responsive `>= 600 dp` được nhóm phê duyệt và ghi thành thông số cuối.
-- [ ] Shopping List persistence được nhóm phê duyệt.
+- [x] Responsive `>= 600 dp` dùng vùng nội dung có `max-width: 600 dp`.
+- [x] Shopping List lưu trạng thái checkbox theo từng danh sách.
 - [ ] Ba Prototype flow được chạy thành công và không còn dead end ngoài ý muốn.
 - [ ] Các recovery path còn thiếu đã được nối và kiểm tra.
 - [ ] Public Figma link được kiểm tra lại trước khi nộp.

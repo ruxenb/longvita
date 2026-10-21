@@ -2,9 +2,9 @@
 
 **Branch:** `Task_4`
 
-**Ngày cập nhật:** 2026-10-21
+**Ngày cập nhật:** 2026-10-22
 
-**Trạng thái:** Draft — chỉ còn các blocker thiết kế cuối
+**Trạng thái:** Draft — chỉ còn Prototype recovery và kiểm tra nghiệm thu cuối
 
 ## 1. Mục tiêu
 
@@ -51,9 +51,9 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - `ai/ai-design-log.md` và `design/design-decisions.md` từ `origin/main` commit `838aa31`.
 - `design/design-system-tokens.json`, `design/design-system-verification.json`, `docs/member-2-design-system-guide.md` và ảnh Design System từ `origin/member-2/lab2-demo-finalization` commit `d6dfb95`.
 - `docs/member-3-ui-worklog.md` và 10 PNG Final UI từ `origin/member3-ui` commit `ab8ae49`.
-- File local `Longvita - UI_UX Design.fig`, export lúc `2026-10-21T11:01:46.418Z` (18:01 giờ Việt Nam), SHA-256 `130F97610C9BCEA0391D619E925F3F005C019E85EFE88B67B2AF46C84643AFE8`.
+- File local `Longvita - UI_UX Design.fig` mới nhất, export lúc `2026-10-21T21:54:03.731Z` (04:54 ngày 22/10/2026, giờ Việt Nam), SHA-256 `066794C221D028425032A777A0FBD55C034AFA24E3D0C29E3441E2964FA042AD`.
 
-### Kết quả đối chiếu file `.fig` ngày 2026-10-21
+### Kết quả đối chiếu file `.fig` ngày 2026-10-22
 
 - Giải mã thành công `2.699` node từ canvas Figma local.
 - Xác nhận đủ 6 page, đủ `S01–S10` trên Final UI và kích thước màn hình chính `360 x 800`.
@@ -68,9 +68,9 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 
 ## 4. Giả định và giới hạn
 
-- Nội dung ban đầu được viết theo User Flow và rubric; cấu trúc chính đã được đối chiếu với file `.fig` export ngày 2026-10-21, nhưng vẫn cần visual QA và chạy prototype trực tiếp trong Figma.
+- Nội dung ban đầu được viết theo User Flow và rubric; cấu trúc chính đã được đối chiếu với file `.fig` mới nhất, nhưng vẫn cần chạy prototype trực tiếp trong Figma sau khi sửa recovery path.
 - Tên Flutter widget là đề xuất triển khai, không phải quyết định bắt buộc.
-- Không tự đặt max-width `>=600 dp` hoặc quy tắc lưu Shopping List khi chưa có quyết định nhóm.
+- Nhóm đã chốt vùng nội dung `max-width: 600 dp` cho màn hình `>= 600 dp` và lưu checkbox riêng theo từng Shopping List, kể cả khi đóng rồi mở lại.
 - Chỉ đánh dấu các mục accessibility có bằng chứng trong worklog/verification; semantics và prototype không được suy ra từ ảnh tĩnh.
 - Các mục chưa thể xác nhận được ghi `TBD`, checklist hoặc trạng thái Draft.
 
@@ -79,7 +79,7 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - Public Figma link đã được `origin/main` ghi nhận mở thành công bằng cửa sổ ẩn danh; nên kiểm tra lại ngay trước khi nộp như một bước vận hành, không còn xem đây là blocker tài liệu.
 - Chạy trực tiếp 3 flow trong Figma để kiểm tra toàn bộ click target, nút Back và trạng thái kết thúc.
 - Nối các recovery navigation còn thiếu và interaction Save/Cancel/sửa lỗi cho Overlay Edit/Validation.
-- Quyết định cuối về Shopping List persistence và responsive max-width cho `>=600 dp`.
+- Responsive và Shopping List persistence không còn là blocker; hai quyết định đã được đồng bộ vào Screen Spec và Flutter Handoff.
 - Semantics, focus order, screen-reader labels và mô tả ảnh được giữ trong handoff làm yêu cầu downstream khi triển khai Flutter, không dùng làm blocker cho việc hoàn thiện tài liệu thiết kế.
 
 ## 6. Hướng dẫn review

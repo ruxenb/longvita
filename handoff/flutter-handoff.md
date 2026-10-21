@@ -1,12 +1,12 @@
 # Flutter Handoff
 
-> Trạng thái: **Draft — only final design blockers remain**. Cấu trúc màn hình, component, token, typography, elevation, 10 PNG Final UI và design accessibility đã có bằng chứng trong repository. Prototype recovery, quy tắc màn hình `>= 600 dp` và Shopping List persistence vẫn cần được chốt. Semantics/focus/screen-reader là checklist cho giai đoạn triển khai Flutter, không phải bằng chứng thiết kế tĩnh.
+> Trạng thái: **Draft — prototype recovery pending**. Cấu trúc màn hình, component, token, typography, elevation, 10 PNG Final UI, design accessibility, responsive `max-width` và Shopping List persistence đã được chốt. Semantics/focus/screen-reader là checklist cho giai đoạn triển khai Flutter, không phải bằng chứng thiết kế tĩnh.
 
 ## 1. Phạm vi và nguyên tắc triển khai
 
 - Target: Flutter mobile, ưu tiên Android.
 - Thiết kế tham chiếu: `360 x 800 dp`, kiểm tra thêm ở `412 dp`.
-- Với chiều rộng `>= 600 dp`, căn giữa nội dung trong vùng có max-width; giá trị chính xác chờ Figma xác nhận.
+- Với chiều rộng `>= 600 dp`, căn giữa nội dung trong vùng có `max-width: 600 dp`.
 - Không đặt mã màu, font, spacing hoặc radius trực tiếp trong từng màn hình. Dùng theme và token dùng chung.
 - Giữ semantics cho nút, checkbox, trường nhập và ảnh.
 - Tôn trọng text scaling, contrast và reduced motion khi phù hợp.
@@ -137,7 +137,7 @@ Tên class ở trên là đề xuất kỹ thuật, không phải tên component
 - **States:** Default, Partially completed, Completed, Empty.
 - **User interactions:** Check/uncheck nguyên liệu, cuộn danh sách, Back.
 - **Navigation:** Back → `S07` hoặc route nguồn; top-level navigation theo Final UI.
-- **UI constraints:** Checkbox/tile hit target `>= 48 dp`; hỗ trợ dùng một tay; trạng thái có semantics `checked`.
+- **UI constraints:** Checkbox/tile hit target `>= 48 dp`; hỗ trợ dùng một tay; trạng thái có semantics `checked`; lưu check/uncheck riêng theo từng Shopping List và khôi phục khi mở lại. Danh sách mới khởi tạo với toàn bộ item chưa check.
 
 ### S09 — Book Knowledge
 
@@ -200,7 +200,7 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 ## 8. Responsive behavior
 
 - `< 600 dp`: một cột, padding ngang theo token, danh sách cuộn dọc.
-- `>= 600 dp`: căn giữa nội dung trong vùng max-width; có thể chuyển nhóm card sang hai cột nếu không phá thứ tự đọc.
+- `>= 600 dp`: căn giữa nội dung trong vùng `max-width: 600 dp`; có thể chuyển nhóm card sang hai cột nếu không phá thứ tự đọc.
 - Form và Recipe Details ưu tiên một cột để dễ đọc.
 - Dialog phải vừa viewport và cuộn nội dung khi chiều cao bị giới hạn.
 - Giá trị breakpoint/max-width cuối cùng phải lấy từ Figma hoặc quyết định đã được nhóm phê duyệt.
@@ -221,4 +221,6 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 - [x] Dialog S07 là Overlay; Loading S03 chuyển sang Result S04 sau 1 giây.
 - [x] Token màu, metric, typography và elevation đã được đối chiếu với bằng chứng Design System của Thành viên 2.
 - [x] Design accessibility đã được đối chiếu bằng worklog/QA Thành viên 3; semantics, focus order và screen-reader behavior được giữ làm yêu cầu cho giai đoạn triển khai Flutter.
+- [x] Responsive `>= 600 dp` dùng vùng nội dung có `max-width: 600 dp`.
+- [x] Shopping List lưu trạng thái checkbox theo từng danh sách và khôi phục khi mở lại.
 - [x] Link Figma và 10 PNG Final UI `S01–S10` đã được thêm vào repo; quyền xem ẩn danh vẫn được theo dõi riêng trong README.

@@ -49,9 +49,9 @@ Figma có sáu page:
 5. `05 Components`
 6. `06 Prototype`
 
-### Offline `.fig` verification — 2026-10-21
+### Offline `.fig` verification — 2026-10-22
 
-File `Longvita - UI_UX Design.fig` export lúc `2026-10-21T11:01:46.418Z` (18:01 giờ Việt Nam), SHA-256 `130F97610C9BCEA0391D619E925F3F005C019E85EFE88B67B2AF46C84643AFE8`, đã được giải mã và đối chiếu ở mức cấu trúc:
+File `Longvita - UI_UX Design.fig` export lúc `2026-10-21T21:54:03.731Z` (04:54 ngày 22/10/2026, giờ Việt Nam), SHA-256 `066794C221D028425032A777A0FBD55C034AFA24E3D0C29E3441E2964FA042AD`, đã được giải mã và đối chiếu ở mức cấu trúc:
 
 - Có đủ 6 page, 10 Final UI master `S01–S10` ở `360 x 800` và 10 bản Responsive QA ở `412 x 915`.
 - Có 9 required state frame cho `S03`, `S04`, `S06`, `S07`; 64 Variables và 81 component symbols.
@@ -103,10 +103,12 @@ Longvita/
 - [x] `design-decisions.md` ghi các quyết định `Accept`/`Modify`/`Reject`.
 - [x] Cấu trúc `screen-spec.md` và `flutter-handoff.md` đã được đối chiếu với Final UI, component và token.
 - [x] Design accessibility có bằng chứng về contrast, text `>=14 sp`, touch target `>=48 dp`, non-color cues và layout `360/412`.
+- [x] Responsive `>= 600 dp` dùng vùng nội dung có `max-width: 600 dp`.
+- [x] Shopping List lưu checkbox theo từng danh sách và khôi phục trạng thái khi mở lại.
 - [ ] Prototype recovery chưa được xác nhận hoàn tất; Flutter semantics/focus/screen-reader behavior là yêu cầu downstream, không phải kết quả có thể chứng minh từ thiết kế tĩnh.
 
 ## 8. Current Documentation Status
 
 - Persona, User Flow, AI log, Design Decisions, Final UI PNG, Screen Specification và Flutter Handoff đã có trong nhánh `Task_4`.
-- Screen Specification và Flutter Handoff vẫn ở trạng thái Draft có kiểm soát do prototype recovery và hai quyết định responsive/data chưa được xác nhận hoàn tất.
+- Screen Specification và Flutter Handoff vẫn ở trạng thái Draft có kiểm soát chỉ do Prototype recovery chưa được xác nhận hoàn tất.
 - Không đổi tài liệu sang `Final` trước khi các mục chưa đánh dấu ở checklist được xử lý và kiểm tra lại.
