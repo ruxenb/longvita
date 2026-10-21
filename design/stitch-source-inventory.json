@@ -1,0 +1,42 @@
+{
+  "archive": "stitch_longvita_longevity_diet_app.zip",
+  "archive_sha256": "9274ccf7539e6a797441c8fe4e085b9c9777a4c9d72e9811a3667e794d0f30ef",
+  "imported_on": "2026-10-20",
+  "files": [
+    {
+      "path": "assets/stitch/leader-export/organic_biomorphic/DESIGN.md",
+      "bytes": 5859,
+      "sha256": "5b1f2e508e38d368b4f62304c32e20b6dd821a3686ac2a61f5abecca067757b5"
+    },
+    {
+      "path": "assets/stitch/leader-export/s01_home_dashboard/code.html",
+      "bytes": 21363,
+      "sha256": "5ae4ef2ac9fba93667a5ad803017bc5ac8a64ccfd066e4e0d1e5104054c81a33"
+    },
+    {
+      "path": "assets/stitch/leader-export/s01_home_dashboard/screen.png",
+      "bytes": 328307,
+      "sha256": "d39d3cf378d1a15a2601df1a08249d5b508632f2366bb887340497226794d715"
+    },
+    {
+      "path": "assets/stitch/leader-export/s03_create_meal_plan/code.html",
+      "bytes": 26348,
+      "sha256": "33f049b925e0854e4124dfc6b8abf336c4c0ed2fd1ba0d722901c8277d45a14a"
+    },
+    {
+      "path": "assets/stitch/leader-export/s03_create_meal_plan/screen.png",
+      "bytes": 313393,
+      "sha256": "9c086ae8ff47e717a7b342300949b10a85c50e3a0e4b76deb4a7a05ac7ad60a4"
+    },
+    {
+      "path": "assets/stitch/leader-export/s04_weekly_meal_plan/code.html",
+      "bytes": 38202,
+      "sha256": "59b77156be4d13e4557f9c29181a546cf39ee116940ec82f92385f5c14261362"
+    },
+    {
+      "path": "assets/stitch/leader-export/s04_weekly_meal_plan/screen.png",
+      "bytes": 749313,
+      "sha256": "769e2b17aa2ecfc55b95a490fc529634b0b9fb1018a23e8ea1e12f03915bf5f3"
+    }
+  ]
+}
