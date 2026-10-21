@@ -1,0 +1,331 @@
+{
+  "date": "2026-10-21",
+  "timezone": "Asia/Saigon",
+  "mode": "READ_ONLY_DEMO_QUICK_CHECK",
+  "scope": "Member2 existing source-file foundations,9 required component groups and representative static samples; no exhaustive regression",
+  "figmaFileKey": "73GTcipwH825N7l501or8D",
+  "pages": [
+    {
+      "id": "1:4",
+      "name": "04 Design System",
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "id": "1:5",
+      "name": "05 Components",
+      "status": "VERIFIED_METADATA"
+    }
+  ],
+  "coverage": [
+    {
+      "name": "Button",
+      "id": "55:111",
+      "expected": 12,
+      "actual": 12,
+      "variants": [
+        {
+          "id": "55:60",
+          "name": "Emphasis=Primary, State=Default"
+        },
+        {
+          "id": "55:64",
+          "name": "Emphasis=Primary, State=Pressed"
+        },
+        {
+          "id": "55:68",
+          "name": "Emphasis=Primary, State=Disabled"
+        },
+        {
+          "id": "55:72",
+          "name": "Emphasis=Primary, State=Loading"
+        },
+        {
+          "id": "55:77",
+          "name": "Emphasis=Secondary, State=Default"
+        },
+        {
+          "id": "55:81",
+          "name": "Emphasis=Secondary, State=Pressed"
+        },
+        {
+          "id": "55:85",
+          "name": "Emphasis=Secondary, State=Disabled"
+        },
+        {
+          "id": "55:89",
+          "name": "Emphasis=Secondary, State=Loading"
+        },
+        {
+          "id": "55:94",
+          "name": "Emphasis=Destructive, State=Default"
+        },
+        {
+          "id": "55:98",
+          "name": "Emphasis=Destructive, State=Pressed"
+        },
+        {
+          "id": "55:102",
+          "name": "Emphasis=Destructive, State=Disabled"
+        },
+        {
+          "id": "55:106",
+          "name": "Emphasis=Destructive, State=Loading"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "TextField",
+      "id": "55:143",
+      "expected": 5,
+      "actual": 5,
+      "variants": [
+        {
+          "id": "55:112",
+          "name": "State=Default"
+        },
+        {
+          "id": "55:119",
+          "name": "State=Focused"
+        },
+        {
+          "id": "55:125",
+          "name": "State=Filled"
+        },
+        {
+          "id": "55:131",
+          "name": "State=Error"
+        },
+        {
+          "id": "55:137",
+          "name": "State=Disabled"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "Card",
+      "id": "56:80",
+      "expected": 4,
+      "actual": 4,
+      "variants": [
+        {
+          "id": "56:36",
+          "name": "Kind=Meal, State=Default"
+        },
+        {
+          "id": "56:51",
+          "name": "Kind=Meal, State=Pressed"
+        },
+        {
+          "id": "56:66",
+          "name": "Kind=Summary, State=Default"
+        },
+        {
+          "id": "56:73",
+          "name": "Kind=Summary, State=Pressed"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "Navigation",
+      "id": "56:174",
+      "expected": 4,
+      "actual": 4,
+      "variants": [
+        {
+          "id": "56:90",
+          "name": "Selected=Home"
+        },
+        {
+          "id": "56:111",
+          "name": "Selected=Plan"
+        },
+        {
+          "id": "56:132",
+          "name": "Selected=Nutrition"
+        },
+        {
+          "id": "56:153",
+          "name": "Selected=Profile"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "AppBar",
+      "id": "56:191",
+      "expected": 2,
+      "actual": 2,
+      "variants": [
+        {
+          "id": "56:175",
+          "name": "Mode=Default"
+        },
+        {
+          "id": "56:181",
+          "name": "Mode=WithActions"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "Dialog",
+      "id": "57:169",
+      "expected": 5,
+      "actual": 5,
+      "variants": [
+        {
+          "id": "57:87",
+          "name": "Kind=Confirmation"
+        },
+        {
+          "id": "57:101",
+          "name": "Kind=Destructive"
+        },
+        {
+          "id": "57:115",
+          "name": "Kind=Error"
+        },
+        {
+          "id": "57:129",
+          "name": "Kind=Edit"
+        },
+        {
+          "id": "57:149",
+          "name": "Kind=EditError"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "Loading",
+      "id": "57:181",
+      "expected": 2,
+      "actual": 2,
+      "variants": [
+        {
+          "id": "57:170",
+          "name": "Style=Spinner"
+        },
+        {
+          "id": "57:174",
+          "name": "Style=Skeleton"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "Empty",
+      "id": "57:212",
+      "expected": 3,
+      "actual": 3,
+      "variants": [
+        {
+          "id": "57:182",
+          "name": "Kind=NoPlan"
+        },
+        {
+          "id": "57:192",
+          "name": "Kind=NoIngredients"
+        },
+        {
+          "id": "57:202",
+          "name": "Kind=NoAlternatives"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    },
+    {
+      "name": "Error",
+      "id": "57:255",
+      "expected": 3,
+      "actual": 3,
+      "variants": [
+        {
+          "id": "57:213",
+          "name": "Kind=Generation"
+        },
+        {
+          "id": "57:227",
+          "name": "Kind=Save"
+        },
+        {
+          "id": "57:241",
+          "name": "Kind=Update"
+        }
+      ],
+      "status": "VERIFIED_METADATA"
+    }
+  ],
+  "requiredGroups": 9,
+  "requiredVariants": 40,
+  "representativeInstances": [
+    {
+      "id": "58:165",
+      "name": "Longvita/Button",
+      "type": "INSTANCE",
+      "width": 330.0,
+      "height": 56.0
+    },
+    {
+      "id": "58:248",
+      "name": "Longvita/TextField",
+      "type": "INSTANCE",
+      "width": 448.0,
+      "height": 116.0
+    },
+    {
+      "id": "58:779",
+      "name": "Longvita/Card",
+      "type": "INSTANCE",
+      "width": 380.0,
+      "height": 164.0
+    },
+    {
+      "id": "58:804",
+      "name": "Longvita/Navigation",
+      "type": "INSTANCE",
+      "width": 412.0,
+      "height": 80.0
+    },
+    {
+      "id": "58:747",
+      "name": "Longvita/Button",
+      "type": "INSTANCE",
+      "width": 328.0,
+      "height": 56.0
+    },
+    {
+      "id": "58:800",
+      "name": "Longvita/Button",
+      "type": "INSTANCE",
+      "width": 380.0,
+      "height": 56.0
+    }
+  ],
+  "visualReview": {
+    "foundations": "reviewed current render",
+    "catalog": "reviewed current render;9 groups visible",
+    "responsive": "reviewed current360/412 render with Vietnamese card,error text,Button,Navigation",
+    "obviousDemoBlockers": []
+  },
+  "visualEvidence": [
+    "../assets/figma/design-system/foundations.png",
+    "../assets/figma/design-system/catalog.png",
+    "../assets/figma/design-system/responsive.png"
+  ],
+  "limitations": [
+    "No Figma mutation or interactive acceptance performed",
+    "No exhaustive consumer,alias or master-signature audit",
+    "No full Final UI/prototype/device accessibility verification",
+    "Anonymous lecturer access not tested",
+    "Token JSON is a dated creation snapshot, not a live export"
+  ],
+  "handoffNotes": [
+    "Source min-height behavior remains52when icon is hidden; sandbox minimum56fix is not promoted",
+    "Loading/icon swaps and Emphasis-switch behavior are not claimed fixed or accepted",
+    "Current radius specimens differ from historical token inventory; use current bindings and agree changes with team"
+  ]
+}
