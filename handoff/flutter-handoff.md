@@ -1,6 +1,6 @@
 # Flutter Handoff
 
-> Trạng thái: **Draft — blocked by prototype verification**. Cấu trúc màn hình, component, token chính và 10 PNG Final UI đã được đối chiếu với file `.fig` export lúc 18:01 ngày 2026-10-21. Các recovery path còn thiếu và kiểm thử prototype trực tiếp phải hoàn tất trước khi bàn giao cuối.
+> Trạng thái: **Draft — only final design blockers remain**. Cấu trúc màn hình, component, token, typography, elevation, 10 PNG Final UI và design accessibility đã có bằng chứng trong repository. Prototype recovery, quy tắc màn hình `>= 600 dp` và Shopping List persistence vẫn cần được chốt. Semantics/focus/screen-reader là checklist cho giai đoạn triển khai Flutter, không phải bằng chứng thiết kế tĩnh.
 
 ## 1. Phạm vi và nguyên tắc triển khai
 
@@ -24,9 +24,14 @@
 | `border` | `#DCCDB0` | Theme extension `outlineSubtle` |
 | `text-muted` | `#5C6B53` | Theme extension `textMuted` |
 | `clay` | `#E7C9A9` | Theme extension `clay` |
-| `typography.h1` | Fraunces, `4rem`, 700, 1.05 | `TextTheme.displayLarge`; chờ kích thước `sp` từ Figma |
-| `typography.body-md` | Quicksand/Nunito, `1rem`, 400, 1.6 | `TextTheme.bodyMedium`; tối thiểu `14 sp` |
-| `typography.label-caps` | Quicksand/Nunito, `0.75rem`, 600 | `TextTheme.labelMedium`; cần kiểm tra khả năng đọc |
+| `Longvita/Brand` | Fraunces Bold, `20/28` | `TextTheme.titleLarge` hoặc theme extension |
+| `Longvita/Heading/L` | Newsreader Bold, `28/36` | `TextTheme.headlineLarge` |
+| `Longvita/Heading/M` | Newsreader SemiBold, `24/32` | `TextTheme.headlineMedium` |
+| `Longvita/Title` | Newsreader SemiBold, `20/28` | `TextTheme.titleLarge` |
+| `Longvita/Body` | Quicksand Regular, `16/26` | `TextTheme.bodyLarge` |
+| `Longvita/Supporting` | Quicksand Medium, `14/22` | `TextTheme.bodyMedium` |
+| `Longvita/Label` | Quicksand SemiBold, `14/20` | `TextTheme.labelLarge` |
+| `Longvita/Label/Strong` | Quicksand Bold, `14/20` | `TextTheme.labelLarge` với weight 700 |
 | `spacing.sm` | `8` | `AppSpacing.sm` |
 | `spacing.md` | `16` | `AppSpacing.md` |
 | `spacing.lg` | `32` | `AppSpacing.lg` |
@@ -38,10 +43,10 @@ Các metric đã xác nhận thêm từ Figma Variables: `space/0,4,8,12,16,24,3
 
 ### Lưu ý về token
 
-- `rem` trong `DESIGN.md` không chuyển nguyên xi sang Flutter; designer cần cung cấp giá trị `sp` cuối cùng.
-- `label-caps` hiện tương đương khoảng 12 px, thấp hơn yêu cầu body text tối thiểu 14 sp nếu dùng cho nội dung.
-- Màu `on-primary` và `on-accent` phải được kiểm tra contrast trên nền thực tế trước khi khóa theme.
-- Figma có ba effect style `Longvita/Elevation/0–2`; cần kiểm tra trực quan và lấy thông số shadow chính xác trước khi ánh xạ sang Flutter `Elevation`/`BoxShadow`.
+- Các giá trị chữ phía trên lấy từ `origin/member-2/lab2-demo-finalization`; kiểm tra Thành viên 3 xác nhận không còn non-icon text dưới `14 sp` trên các frame đã audit.
+- Màu chữ trắng trên action green `#476429` đạt `6.72:1`; text chính trên nền kem đạt `10.48:1`; text phụ đạt `5.06:1` theo bằng chứng Design System.
+- `Longvita/Elevation/0`: phẳng; `Elevation/1`: offset `0/1`, blur `3`, alpha `0.08`; `Elevation/2`: offset `0/4`, blur `16`, alpha `0.12`, màu `#2F3B2A`. Flutter nên ánh xạ bằng `BoxShadow`/theme extension thay vì đặt lẻ trên từng widget.
+- Token nguồn `size/button/height = 52`, trong khi instance có icon và padding thực tế cao `56`; implementation nên giữ min-height `56` cho CTA và không giảm touch target dưới `48`.
 
 ## 3. Components-to-Widgets mapping
 
@@ -182,15 +187,15 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 
 ## 7. Accessibility checklist
 
-- [ ] Hit target tối thiểu `48 x 48 dp`.
-- [ ] Body text tối thiểu `14 sp` và không vỡ layout khi text scale tăng.
-- [ ] Contrast đạt yêu cầu đã nêu trong Screen Specifications.
+- [x] Design QA không phát hiện hit target được audit nhỏ hơn `48 x 48 dp`.
+- [x] Design QA không phát hiện non-icon text dưới `14 sp`; không còn text overflow trên 29 frame được audit.
+- [x] Các cặp màu chính đã có số liệu contrast đạt ngưỡng tương ứng.
 - [ ] Mọi icon-only button có semantic label/tooltip phù hợp.
 - [ ] Ảnh món ăn có mô tả thay thế.
-- [ ] Error được đọc bởi screen reader và có hướng khắc phục.
+- [ ] Error có nội dung/hướng khắc phục trong thiết kế; khả năng đọc bởi screen reader phải kiểm tra khi triển khai Flutter.
 - [ ] Focus order theo thứ tự đọc tự nhiên.
 - [ ] Selected, checked, loading và disabled có semantics tương ứng.
-- [ ] Không dùng màu làm tín hiệu duy nhất.
+- [x] Trạng thái có icon hoặc text bổ sung và không dùng màu làm tín hiệu duy nhất.
 
 ## 8. Responsive behavior
 
@@ -214,6 +219,6 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 - [x] Đã xác nhận tên component và variant chính trong file local từ Figma Page 05.
 - [ ] Ba flow chạy đúng trên Figma Page 06 và khớp navigation contract.
 - [x] Dialog S07 là Overlay; Loading S03 chuyển sang Result S04 sau 1 giây.
-- [x] Token màu và metric chính đã được đối chiếu với Figma Variables; typography/elevation vẫn cần visual QA trước khi khóa implementation.
-- [ ] Accessibility checklist được kiểm tra trên thiết kế cuối.
+- [x] Token màu, metric, typography và elevation đã được đối chiếu với bằng chứng Design System của Thành viên 2.
+- [x] Design accessibility đã được đối chiếu bằng worklog/QA Thành viên 3; semantics, focus order và screen-reader behavior được giữ làm yêu cầu cho giai đoạn triển khai Flutter.
 - [x] Link Figma và 10 PNG Final UI `S01–S10` đã được thêm vào repo; quyền xem ẩn danh vẫn được theo dõi riêng trong README.

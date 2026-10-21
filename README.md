@@ -102,10 +102,11 @@ Longvita/
 - [x] `ai-design-log.md` có prompt gốc, ba iterations và ít nhất năm critique findings.
 - [x] `design-decisions.md` ghi các quyết định `Accept`/`Modify`/`Reject`.
 - [x] Cấu trúc `screen-spec.md` và `flutter-handoff.md` đã được đối chiếu với Final UI, component và token.
-- [ ] Accessibility và prototype cần được chạy kiểm thử trực tiếp trên thiết kế cuối.
+- [x] Design accessibility có bằng chứng về contrast, text `>=14 sp`, touch target `>=48 dp`, non-color cues và layout `360/412`.
+- [ ] Prototype recovery chưa được xác nhận hoàn tất; Flutter semantics/focus/screen-reader behavior là yêu cầu downstream, không phải kết quả có thể chứng minh từ thiết kế tĩnh.
 
 ## 8. Current Documentation Status
 
 - Persona, User Flow, AI log, Design Decisions, Final UI PNG, Screen Specification và Flutter Handoff đã có trong nhánh `Task_4`.
-- Screen Specification và Flutter Handoff vẫn ở trạng thái Draft có kiểm soát do prototype recovery và accessibility chưa được xác nhận hoàn tất.
+- Screen Specification và Flutter Handoff vẫn ở trạng thái Draft có kiểm soát do prototype recovery và hai quyết định responsive/data chưa được xác nhận hoàn tất.
 - Không đổi tài liệu sang `Final` trước khi các mục chưa đánh dấu ở checklist được xử lý và kiểm tra lại.

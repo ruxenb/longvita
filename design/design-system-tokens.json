@@ -1,0 +1,184 @@
+{
+  "version": "1.0-lab2",
+  "source": "Leader Stitch ZIP",
+  "collections": {
+    "Longvita / Primitives": "VariableCollectionId:52:2",
+    "Longvita / Color": "VariableCollectionId:52:3",
+    "Longvita / Metrics": "VariableCollectionId:52:4"
+  },
+  "primitiveColors": {
+    "green/brand": "#6F8F4E",
+    "green/action": "#476429",
+    "green/pressed": "#324E15",
+    "cream/canvas": "#F6F1E7",
+    "cream/strong": "#EEE6D6",
+    "white": "#FFFFFF",
+    "ink/primary": "#2F3B2A",
+    "ink/muted": "#5C6B53",
+    "olive/outline": "#74796C",
+    "sand/decorative": "#DCCDB0",
+    "green/tint": "#E4F2DA",
+    "green/soft": "#EAF8DF",
+    "clay/accent": "#D98B5F",
+    "clay/soft": "#FFDBCA",
+    "clay/ink": "#783D17",
+    "error/strong": "#BA1A1A",
+    "error/soft": "#FFDAD6",
+    "error/ink": "#93000A",
+    "disabled/bg": "#E4E2DB",
+    "disabled/text": "#62685D"
+  },
+  "semanticColorAliases": {
+    "color/bg/canvas": "cream/canvas",
+    "color/bg/surface": "white",
+    "color/bg/soft": "green/soft",
+    "color/bg/selected": "green/tint",
+    "color/bg/pressed": "cream/strong",
+    "color/text/primary": "ink/primary",
+    "color/text/secondary": "ink/muted",
+    "color/action/primary": "green/action",
+    "color/action/pressed": "green/pressed",
+    "color/action/on-primary": "white",
+    "color/action/secondary": "green/action",
+    "color/border/control": "olive/outline",
+    "color/border/decorative": "sand/decorative",
+    "color/border/focus": "green/action",
+    "color/brand": "green/brand",
+    "color/feedback/error": "error/strong",
+    "color/feedback/error-bg": "error/soft",
+    "color/feedback/error-text": "error/ink",
+    "color/feedback/success": "green/action",
+    "color/feedback/warm-bg": "clay/soft",
+    "color/feedback/warm-text": "clay/ink",
+    "color/disabled/bg": "disabled/bg",
+    "color/disabled/text": "disabled/text"
+  },
+  "metrics": [
+    {
+      "name": "space/0",
+      "value": 0,
+      "scope": "GAP"
+    },
+    {
+      "name": "space/4",
+      "value": 4,
+      "scope": "GAP"
+    },
+    {
+      "name": "space/8",
+      "value": 8,
+      "scope": "GAP"
+    },
+    {
+      "name": "space/12",
+      "value": 12,
+      "scope": "GAP"
+    },
+    {
+      "name": "space/16",
+      "value": 16,
+      "scope": "GAP"
+    },
+    {
+      "name": "space/24",
+      "value": 24,
+      "scope": "GAP"
+    },
+    {
+      "name": "space/32",
+      "value": 32,
+      "scope": "GAP"
+    },
+    {
+      "name": "space/48",
+      "value": 48,
+      "scope": "GAP"
+    },
+    {
+      "name": "radius/0",
+      "value": 0,
+      "scope": "CORNER_RADIUS"
+    },
+    {
+      "name": "radius/16",
+      "value": 16,
+      "scope": "CORNER_RADIUS"
+    },
+    {
+      "name": "radius/28",
+      "value": 28,
+      "scope": "CORNER_RADIUS"
+    },
+    {
+      "name": "radius/32",
+      "value": 32,
+      "scope": "CORNER_RADIUS"
+    },
+    {
+      "name": "radius/48",
+      "value": 48,
+      "scope": "CORNER_RADIUS"
+    },
+    {
+      "name": "radius/pill",
+      "value": 9999,
+      "scope": "CORNER_RADIUS"
+    },
+    {
+      "name": "size/touch/min",
+      "value": 48,
+      "scope": "WIDTH_HEIGHT"
+    },
+    {
+      "name": "size/button/height",
+      "value": 52,
+      "scope": "WIDTH_HEIGHT"
+    },
+    {
+      "name": "size/icon/size",
+      "value": 24,
+      "scope": "WIDTH_HEIGHT"
+    },
+    {
+      "name": "size/nav/height",
+      "value": 80,
+      "scope": "WIDTH_HEIGHT"
+    },
+    {
+      "name": "size/appbar/height",
+      "value": 64,
+      "scope": "WIDTH_HEIGHT"
+    },
+    {
+      "name": "stroke/1",
+      "value": 1,
+      "scope": "STROKE_FLOAT"
+    },
+    {
+      "name": "stroke/2",
+      "value": 2,
+      "scope": "STROKE_FLOAT"
+    }
+  ],
+  "textStyleIds": {
+    "Brand": "S:9978991e374a6a597f768fc1477db5010c3275c8,",
+    "Heading/L": "S:87685fb8e3ab64ad688091d927162bd7b57bfccd,",
+    "Heading/M": "S:87804e5c5361ce7c2503e8881d4652b81dbcd77d,",
+    "Title": "S:c16187b0fa5834457baab5f44da55c4b20bc1e6f,",
+    "Body": "S:5d5e6cf61506d36844dda681f773143bfb48d4db,",
+    "Supporting": "S:d464e0e61a085ece4faf6ac2c4a64bbbfe48257b,",
+    "Label": "S:f46cdfd26434c52c5ce9dbdf75d8638e27bc20c0,",
+    "Label/Strong": "S:e2b31f14b72a89c2bbc6f60052580a396ecb9728,"
+  },
+  "effectStyleIds": {
+    "0": "S:cba822e803807f88161e1a8c2d714834a7f1973b,",
+    "1": "S:8b4f2ba58cf6f16c62a3d7372a0f95873b84dd07,",
+    "2": "S:00601526c21903f6c60a4f221ded524c31163d82,"
+  },
+  "snapshot": {
+    "date": "2026-10-20",
+    "figmaFileKey": "73GTcipwH825N7l501or8D",
+    "status": "historical_source_baseline",
+    "usage": "Reference inventory from creation. Not a live export; current Page04 radius specimens differ. No sandbox-only token is included. Inspect current Figma bindings when applying components."
+  }
+}

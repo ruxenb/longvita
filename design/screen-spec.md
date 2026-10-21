@@ -223,9 +223,9 @@
 
 - [x] Tên và hierarchy chính của component đã được đối chiếu với Page 05 trong file `.fig` export ngày 2026-10-21.
 - [x] Kích thước màn hình chính `360 x 800`, 10 bản QA `412 x 915`, content width và các metric token chính đã được đối chiếu.
-- [ ] Bottom navigation xuất hiện trên màn hình nào và tab nào được chọn.
-- [ ] Icon, hình minh họa và asset cuối cùng.
-- [ ] Cách thể hiện Dark mode nếu nằm trong phạm vi bài.
+- [x] Final UI xác nhận Bottom Navigation trên `S01` (Home), `S04`/`S10` (Plan) và `S08` (Nutrition); các màn chi tiết dùng AppBar/Back theo route nguồn.
+- [x] Bộ icon component và 10 PNG Final UI cuối đã có trong repository; ảnh món ăn dùng chế độ fill, không stretch.
+- [x] Design System xác định theme hiện tại là **Light**; Dark mode không thuộc phạm vi bàn giao hiện tại.
 - [x] Transition `S03 Loading` → `S04 Result` dùng `AFTER_TIMEOUT = 1000 ms`.
-- [ ] Nội dung Dialog, Snackbar và thông báo lỗi đúng với Final UI.
+- [x] Nội dung và bố cục Dialog, Snackbar, Empty/Error state đã được kiểm tra trực quan; interaction recovery vẫn theo dõi riêng trong Prototype checklist.
 - [ ] Quy tắc lưu trạng thái Shopping List.

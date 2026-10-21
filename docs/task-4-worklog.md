@@ -4,7 +4,7 @@
 
 **Ngày cập nhật:** 2026-10-21
 
-**Trạng thái:** Draft for team review
+**Trạng thái:** Draft — chỉ còn các blocker thiết kế cuối
 
 ## 1. Mục tiêu
 
@@ -49,6 +49,8 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - `ux/user-flow.md`
 - `design/DESIGN.md`
 - `ai/ai-design-log.md` và `design/design-decisions.md` từ `origin/main` commit `838aa31`.
+- `design/design-system-tokens.json`, `design/design-system-verification.json`, `docs/member-2-design-system-guide.md` và ảnh Design System từ `origin/member-2/lab2-demo-finalization` commit `d6dfb95`.
+- `docs/member-3-ui-worklog.md` và 10 PNG Final UI từ `origin/member3-ui` commit `ab8ae49`.
 - File local `Longvita - UI_UX Design.fig`, export lúc `2026-10-21T11:01:46.418Z` (18:01 giờ Việt Nam), SHA-256 `130F97610C9BCEA0391D619E925F3F005C019E85EFE88B67B2AF46C84643AFE8`.
 
 ### Kết quả đối chiếu file `.fig` ngày 2026-10-21
@@ -61,22 +63,24 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - Phát hiện các recovery path chưa được nối trong file export mới: `Flow1 / S03 Generation Error` chỉ có Cancel về Home; `Flow1 / S04 Save Error`, `Flow2 / S07 Empty Ingredients`, `Flow2 / S07 Undo Snackbar`, `Flow3 / S06 Update Error` chưa có recovery navigation; Overlay Edit/Validation chưa ghi nhận Save/Cancel/sửa lỗi. Vì vậy chưa đánh dấu ba flow là hoàn tất hoặc không có dead end.
 - Đưa 10 PNG Final UI từ nhánh `origin/member3-ui` vào `assets/figma/`; xác nhận `10/10` là PNG hợp lệ, kích thước `360 x 800`, không có file rỗng và có SHA-256 riêng biệt.
 - Đồng bộ `origin/main` vào `Task_4`; giữ nội dung Persona phụ, AI log ba iterations, chín critique findings, Design Decisions và User Flow đã sửa đúng `S10`/`S08`.
+- Dùng bằng chứng Thành viên 2 để chốt typography, elevation, 9 component groups/40 variants và Light theme trong Flutter Handoff.
+- Dùng bằng chứng Thành viên 3 để xác nhận Final UI `360`, Responsive QA `412`, contrast, text `>=14 sp`, touch target `>=48 dp`, non-color cues, visual layout audit và 10 PNG cuối.
 
 ## 4. Giả định và giới hạn
 
 - Nội dung ban đầu được viết theo User Flow và rubric; cấu trúc chính đã được đối chiếu với file `.fig` export ngày 2026-10-21, nhưng vẫn cần visual QA và chạy prototype trực tiếp trong Figma.
 - Tên Flutter widget là đề xuất triển khai, không phải quyết định bắt buộc.
-- Không tự đặt giá trị spacing, typography, elevation hoặc max-width còn thiếu.
-- Không tuyên bố Figma, prototype hoặc accessibility đã được kiểm thử khi chưa có bằng chứng.
+- Không tự đặt max-width `>=600 dp` hoặc quy tắc lưu Shopping List khi chưa có quyết định nhóm.
+- Chỉ đánh dấu các mục accessibility có bằng chứng trong worklog/verification; semantics và prototype không được suy ra từ ảnh tĩnh.
 - Các mục chưa thể xác nhận được ghi `TBD`, checklist hoặc trạng thái Draft.
 
 ## 5. Việc còn chờ nhóm thiết kế
 
-- Kiểm tra lại public Figma link bằng cửa sổ ẩn danh: lần kiểm tra tự động đã mở đúng file và không hiện yêu cầu đăng nhập, nhưng canvas chưa tải hoàn tất nên chưa xác nhận được toàn bộ nội dung.
-- Icon, font, illustration và ảnh món ăn chính thức.
+- Public Figma link đã được `origin/main` ghi nhận mở thành công bằng cửa sổ ẩn danh; nên kiểm tra lại ngay trước khi nộp như một bước vận hành, không còn xem đây là blocker tài liệu.
 - Chạy trực tiếp 3 flow trong Figma để kiểm tra toàn bộ click target, nút Back và trạng thái kết thúc.
 - Nối các recovery navigation còn thiếu và interaction Save/Cancel/sửa lỗi cho Overlay Edit/Validation.
-- Quyết định cuối về Dark mode, Shopping List persistence và responsive max-width.
+- Quyết định cuối về Shopping List persistence và responsive max-width cho `>=600 dp`.
+- Semantics, focus order, screen-reader labels và mô tả ảnh được giữ trong handoff làm yêu cầu downstream khi triển khai Flutter, không dùng làm blocker cho việc hoàn thiện tài liệu thiết kế.
 
 ## 6. Hướng dẫn review
 
