@@ -1,8 +1,8 @@
 # Longvita — Member 3 UI Designer & Prototyper Design Spec
 
-**Ngày:** 21/10/2026  
-**Phạm vi:** Thành viên 3 — UI Designer & Prototyper  
-**Dự án:** PRM393 / Longvita  
+**Ngày:** 21/10/2026
+**Phạm vi:** Thành viên 3 — UI Designer & Prototyper
+**Dự án:** PRM393 / Longvita
 **Figma:** `73GTcipwH825N7l501or8D`
 
 ## 1. Mục tiêu
