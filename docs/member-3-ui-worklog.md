@@ -134,3 +134,63 @@ Temporary QA screenshots are stored in the plan-specific ignored execution works
 - `task8-responsive-412.png`
 
 The final deliverable PNGs are exported separately to `assets/figma/` only after prototype verification.
+## 11. Interactive prototype verification
+
+Page `06 Prototype` contains three named Figma Flow Starting Points:
+- `Flow 1 — Create and Save Weekly Meal Plan`
+- `Flow 2 — Ingredients and Shopping`
+- `Flow 3 — Book Knowledge and Replace Meal`
+
+Prototype implementation evidence:
+- 42 interaction sources were wired with Figma prototype reactions.
+- Flow 1 happy path: `S01 -> S02 -> S03 -> Loading -> S04 -> S10`.
+- `S03 / Loading` uses `AFTER_TIMEOUT = 1000ms` and navigates to the S04 result.
+- Generation Error supports `Try again`, `Edit preferences` and `Cancel to Home` recovery.
+- Save Error supports retry and keep-reviewing recovery while preserving the generated-plan context.
+- Flow 2 happy path: `S04 -> S07 -> S08`.
+- S07 Edit uses real prototype navigation `OVERLAY` to a centered `328x448` dialog frame.
+- Invalid save uses `SWAP` to the validation dialog; tapping the quantity field returns to the editable dialog; Cancel closes the overlay.
+- Ingredient removal is represented by a long-press branch to the Undo Snackbar state; Undo returns to S07.
+- Empty Ingredients returns to S04.
+- Flow 3 connects Weekly Plan, Recipe Details, Book Knowledge, Meal Alternatives and the updated/original-plan outcomes.
+- No Alternatives can review preferences or keep the original meal.
+- Update Error can retry or keep the original meal.
+- Back controls were wired to the logical previous screen throughout the prototype.
+
+For live demonstration without adding artificial error buttons to the product UI, the normal tap follows the happy path while an 800ms long-press on the relevant primary action opens the corresponding failure branch (generation, save, empty/no-alternative/update-error cases).
+
+## 12. Final PNG exports
+
+Exactly ten Final UI master screens were exported from Page 03 at normal Figma PNG scale:
+
+- `assets/figma/S01-home.png`
+- `assets/figma/S02-food-preferences.png`
+- `assets/figma/S03-create-meal-plan.png`
+- `assets/figma/S04-weekly-meal-plan.png`
+- `assets/figma/S05-recipe-details.png`
+- `assets/figma/S06-meal-alternatives.png`
+- `assets/figma/S07-ingredient-summary.png`
+- `assets/figma/S08-shopping-list.png`
+- `assets/figma/S09-book-knowledge.png`
+- `assets/figma/S10-saved-plans.png`
+
+Export verification:
+- File count: `10`.
+- PNG signature valid: `10/10`.
+- Dimensions: `360x800` for `10/10`.
+- Empty files: `0`.
+- Unique SHA-256 hashes: `10/10`, so no duplicate screen was exported under another filename.
+
+## 13. Final Figma structure audit
+
+Final automated structure check returned:
+- Page 02: `10` wireframes, `10` unique S01-S10 IDs.
+- Page 03: `10` Final UI masters and `9` required state variants.
+- Page 06: `3` named Flow Starting Points.
+- Generic important layer names matching `Frame 123`, `Rectangle 45` or equivalent: `0` findings across Pages 02, 03 and 06 outside component-instance internals.
+- S03 Loading reaction: `AFTER_TIMEOUT 1000ms -> NAVIGATE` to S04 result.
+- S07 Edit reaction: `ON_CLICK -> OVERLAY` to the dedicated Edit Ingredient dialog.
+
+## 14. Known non-blocking limitation
+
+The connected Figma tool can edit the shared file and configure prototype reactions, but it does not expose a command to create a named Version History milestone. The design changes are saved in the shared Figma file; if the rubric specifically requires named milestones in Version History, a team member should manually name the current milestone in the Figma UI before submission.
