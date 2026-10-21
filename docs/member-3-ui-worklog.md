@@ -202,3 +202,25 @@ A separate final review after Tasks 1–10 found and corrected three release-blo
 - The S09 citation body contained the full source text but its 98px parent card clipped the second line. Citation containers were expanded to 142px with 14px bottom padding in the master, 412dp QA copy and prototype clone.
 
 The affected S01, S04 and S09 PNG deliverables were re-exported from the corrected Final UI masters before the final verification run.
+
+
+## 16. Pixel-level polish audit
+
+A second release review focused specifically on visual collisions, edge spacing and text wrapping rather than only screen inventory. The audit covered all 10 Final UI masters, all 10 responsive 412dp copies, all 9 required state variants and the corresponding prototype clones.
+
+Automated geometry checks initially surfaced 81 potential findings. False positives from centered icon glyph boxes and 48dp Edit/Select touch targets were separated from actual layout defects. The real defects were corrected without reducing font sizes or touch-target dimensions:
+- Selected-state labels in S02/S03 were given a protected text column and an 8dp gap so `Selected` no longer overlaps title/supporting copy.
+- The S04 seven-day selector now keeps every day target at `48x48`; 360dp uses zero Auto Layout item spacing so all seven targets fit, while 412dp distributes the extra width evenly.
+- The S04 dinner title/time rows were separated vertically and the Daily note surface was increased so wrapped copy has at least 8dp bottom clearance.
+- S01 Saved Plans quick-link supporting copy was shortened to `Previous weeks` to avoid a bottom-edge wrap.
+- S05 recipe protein/step copy received additional right-side breathing room.
+- S09 principle cards received additional bottom padding; the citation line height was normalized from 44px to 22px for 14sp text and the citation surface was compacted accordingly.
+- `S06 / No Alternatives` now hides stale alternative cards and the underlying original CTA so the state presents a clean context + recovery layout without visual layer bleed.
+
+Post-fix structural audit result: `0` text-overflow, selected-overlap, day-target overflow, dinner-row collision, Daily-note clipping, step-edge, or principle-edge findings across the 29 audited Final UI/state/responsive frames.
+
+High-resolution screenshots of Flow 1, Flow 2, Flow 3, Required States and Responsive QA were reviewed manually after the automated pass. No remaining text collision, row/column collision, clipped copy or visually unsafe edge spacing was found.
+
+All ten deliverable PNGs were re-exported from the latest Figma masters after the polish pass. Verification remains `10/10` valid PNG signatures, `10/10` at `360x800`, `0` empty files and `10/10` unique SHA-256 hashes.
+
+Final regression after the pixel-polish pass also synchronized 52 remaining 12–13sp custom labels in legacy state/prototype clones to 14sp. The complete regression set now reports `0` non-icon text below 14sp, `0` text overflow findings and `0` audited interactive targets below 48dp across masters, responsive copies, states and prototype. Prototype integrity remains unchanged with `3` Flow Starting Points, `42` meaningful interaction sources, the `1000ms` Loading-to-result timeout and the real Edit Ingredient overlay interaction all verified.
