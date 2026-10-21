@@ -1,8 +1,8 @@
 # Member 3 UI Designer & Prototyper Worklog
 
-**Project:** Longvita / PRM393  
-**Member:** Member 3 — UI Designer & Prototyper  
-**Date:** 21/10/2026  
+**Project:** Longvita / PRM393
+**Member:** Member 3 — UI Designer & Prototyper
+**Date:** 21/10/2026
 **Figma file:** `73GTcipwH825N7l501or8D`
 
 ## 1. Scope completed before prototype wiring
@@ -194,3 +194,11 @@ Final automated structure check returned:
 ## 14. Known non-blocking limitation
 
 The connected Figma tool can edit the shared file and configure prototype reactions, but it does not expose a command to create a named Version History milestone. The design changes are saved in the shared Figma file; if the rubric specifically requires named milestones in Version History, a team member should manually name the current milestone in the Figma UI before submission.
+## 15. Final whole-branch review fixes
+
+A separate final review after Tasks 1–10 found and corrected three release-blocking evidence issues before branch handoff:
+- `git diff --check` detected trailing whitespace in the worklog header; the three affected lines were normalized.
+- The S01/S04 meal-card provenance badge had been accidentally overwritten to `Planned` while a separate `Pending` status remained visible. The provenance label was restored to `From Book` across masters, state/QA copies and prototype clones; `Pending` remains the independent meal status.
+- The S09 citation body contained the full source text but its 98px parent card clipped the second line. Citation containers were expanded to 142px with 14px bottom padding in the master, 412dp QA copy and prototype clone.
+
+The affected S01, S04 and S09 PNG deliverables were re-exported from the corrected Final UI masters before the final verification run.
