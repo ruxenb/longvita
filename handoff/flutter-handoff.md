@@ -1,12 +1,12 @@
 # Flutter Handoff
 
-> Trạng thái: **Draft — only final design blockers remain**. Cấu trúc màn hình, component, token, typography, elevation, 10 PNG Final UI và design accessibility đã có bằng chứng trong repository. Prototype recovery, quy tắc màn hình `>= 600 dp` và Shopping List persistence vẫn cần được chốt. Semantics/focus/screen-reader là checklist cho giai đoạn triển khai Flutter, không phải bằng chứng thiết kế tĩnh.
+> Trạng thái: **Design handoff ready**. Cấu trúc màn hình, component, token, typography, elevation, 10 PNG Final UI, design accessibility và prototype recovery đã có bằng chứng. Responsive đã chốt content max-width `600 dp` cho màn hình rộng; Shopping List checkbox state được lưu theo từng Shopping List. Semantics/focus/screen-reader là checklist cho giai đoạn triển khai Flutter, không phải bằng chứng thiết kế tĩnh.
 
 ## 1. Phạm vi và nguyên tắc triển khai
 
 - Target: Flutter mobile, ưu tiên Android.
 - Thiết kế tham chiếu: `360 x 800 dp`, kiểm tra thêm ở `412 dp`.
-- Với chiều rộng `>= 600 dp`, căn giữa nội dung trong vùng có max-width; giá trị chính xác chờ Figma xác nhận.
+- Với chiều rộng `>= 600 dp`, căn giữa nội dung và giới hạn content max-width ở `600 dp`.
 - Không đặt mã màu, font, spacing hoặc radius trực tiếp trong từng màn hình. Dùng theme và token dùng chung.
 - Giữ semantics cho nút, checkbox, trường nhập và ảnh.
 - Tôn trọng text scaling, contrast và reduced motion khi phù hợp.
@@ -135,9 +135,9 @@ Tên class ở trên là đề xuất kỹ thuật, không phải tên component
 - **Layout:** Danh sách phân section; progress/tóm tắt nếu có; navigation chính.
 - **Components:** Checkbox/ListTile, section header, Empty state, Navigation.
 - **States:** Default, Partially completed, Completed, Empty.
-- **User interactions:** Check/uncheck nguyên liệu, cuộn danh sách, Back.
+- **User interactions:** Check/uncheck nguyên liệu, cuộn danh sách, Back; trạng thái check được lưu theo `shoppingListId` và khôi phục khi mở lại đúng danh sách.
 - **Navigation:** Back → `S07` hoặc route nguồn; top-level navigation theo Final UI.
-- **UI constraints:** Checkbox/tile hit target `>= 48 dp`; hỗ trợ dùng một tay; trạng thái có semantics `checked`.
+- **UI constraints:** Checkbox/tile hit target `>= 48 dp`; hỗ trợ dùng một tay; trạng thái có semantics `checked`; không dùng một state checkbox toàn cục cho nhiều Shopping List khác nhau.
 
 ### S09 — Book Knowledge
 
@@ -200,10 +200,10 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 ## 8. Responsive behavior
 
 - `< 600 dp`: một cột, padding ngang theo token, danh sách cuộn dọc.
-- `>= 600 dp`: căn giữa nội dung trong vùng max-width; có thể chuyển nhóm card sang hai cột nếu không phá thứ tự đọc.
+- `>= 600 dp`: căn giữa nội dung trong vùng có content max-width `600 dp`; có thể chuyển nhóm card sang hai cột nếu không phá thứ tự đọc.
 - Form và Recipe Details ưu tiên một cột để dễ đọc.
 - Dialog phải vừa viewport và cuộn nội dung khi chiều cao bị giới hạn.
-- Giá trị breakpoint/max-width cuối cùng phải lấy từ Figma hoặc quyết định đã được nhóm phê duyệt.
+- Quy tắc max-width `600 dp` đã được nhóm chốt để handoff sang Flutter.
 
 ## 9. Assets và dependency cần bàn giao thêm
 
@@ -217,7 +217,7 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 
 - [x] Đã xác nhận cấu trúc và kích thước chính của `S01–S10` trong file local từ Figma Page 03.
 - [x] Đã xác nhận tên component và variant chính trong file local từ Figma Page 05.
-- [ ] Ba flow chạy đúng trên Figma Page 06 và khớp navigation contract.
+- [x] Ba flow trên Figma Page 06 đã được kiểm tra; `22/22` core recovery behaviors và `16/16` CTA/navigation behaviors pass, không còn dead-end được phát hiện trong phạm vi audit.
 - [x] Dialog S07 là Overlay; Loading S03 chuyển sang Result S04 sau 1 giây.
 - [x] Token màu, metric, typography và elevation đã được đối chiếu với bằng chứng Design System của Thành viên 2.
 - [x] Design accessibility đã được đối chiếu bằng worklog/QA Thành viên 3; semantics, focus order và screen-reader behavior được giữ làm yêu cầu cho giai đoạn triển khai Flutter.

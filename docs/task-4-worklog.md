@@ -60,7 +60,7 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 - Xác nhận 64 Variables thuộc ba nhóm `Longvita / Primitives`, `Longvita / Color`, `Longvita / Metrics`.
 - Xác nhận component catalog có Button, TextField, Card, Navigation, AppBar, Dialog, Loading, Empty, Error và các component hỗ trợ.
 - Xác nhận ba prototype starting point, Overlay Edit Ingredient tại `S07`, và chuyển tự động `S03 Loading` → `S04` sau 1 giây.
-- Phát hiện các recovery path chưa được nối trong file export mới: `Flow1 / S03 Generation Error` chỉ có Cancel về Home; `Flow1 / S04 Save Error`, `Flow2 / S07 Empty Ingredients`, `Flow2 / S07 Undo Snackbar`, `Flow3 / S06 Update Error` chưa có recovery navigation; Overlay Edit/Validation chưa ghi nhận Save/Cancel/sửa lỗi. Vì vậy chưa đánh dấu ba flow là hoàn tất hoặc không có dead end.
+- Ngày 22/10/2026 đã kiểm tra trực tiếp Figma Page 06 và sửa prototype recovery: loại bỏ trigger `MOUSE_DOWN` xung đột với `ON_CLICK`, nối Retry/Edit Preferences/Keep Reviewing/Keep Original/Return/Undo, hoàn thiện Save/Cancel/Validation cho Edit Ingredient Overlay và thêm hotspot cho bottom navigation. Acceptance audit cuối đạt `22/22` core recovery behaviors và `16/16` CTA/navigation behaviors.
 - Đưa 10 PNG Final UI từ nhánh `origin/member3-ui` vào `assets/figma/`; xác nhận `10/10` là PNG hợp lệ, kích thước `360 x 800`, không có file rỗng và có SHA-256 riêng biệt.
 - Đồng bộ `origin/main` vào `Task_4`; giữ nội dung Persona phụ, AI log ba iterations, chín critique findings, Design Decisions và User Flow đã sửa đúng `S10`/`S08`.
 - Dùng bằng chứng Thành viên 2 để chốt typography, elevation, 9 component groups/40 variants và Light theme trong Flutter Handoff.
@@ -68,18 +68,16 @@ Hoàn thiện các phần thuộc trách nhiệm Thành viên 4 có thể thực
 
 ## 4. Giả định và giới hạn
 
-- Nội dung ban đầu được viết theo User Flow và rubric; cấu trúc chính đã được đối chiếu với file `.fig` export ngày 2026-10-21, nhưng vẫn cần visual QA và chạy prototype trực tiếp trong Figma.
+- Nội dung ban đầu được viết theo User Flow và rubric; cấu trúc chính đã được đối chiếu với file `.fig` export ngày 2026-10-21 và prototype đã được chạy/audit trực tiếp trên Figma ngày 22/10/2026.
 - Tên Flutter widget là đề xuất triển khai, không phải quyết định bắt buộc.
-- Không tự đặt max-width `>=600 dp` hoặc quy tắc lưu Shopping List khi chưa có quyết định nhóm.
-- Chỉ đánh dấu các mục accessibility có bằng chứng trong worklog/verification; semantics và prototype không được suy ra từ ảnh tĩnh.
+- Nhóm đã chốt responsive content max-width `600 dp` cho màn hình rộng và Shopping List checkbox persistence theo từng Shopping List.
+- Chỉ đánh dấu các mục accessibility có bằng chứng trong worklog/verification; semantics và screen-reader behavior vẫn là yêu cầu downstream khi triển khai Flutter.
 - Các mục chưa thể xác nhận được ghi `TBD`, checklist hoặc trạng thái Draft.
 
 ## 5. Việc còn chờ nhóm thiết kế
 
 - Public Figma link đã được `origin/main` ghi nhận mở thành công bằng cửa sổ ẩn danh; nên kiểm tra lại ngay trước khi nộp như một bước vận hành, không còn xem đây là blocker tài liệu.
-- Chạy trực tiếp 3 flow trong Figma để kiểm tra toàn bộ click target, nút Back và trạng thái kết thúc.
-- Nối các recovery navigation còn thiếu và interaction Save/Cancel/sửa lỗi cho Overlay Edit/Validation.
-- Quyết định cuối về Shopping List persistence và responsive max-width cho `>=600 dp`.
+- Prototype recovery, CTA/navigation Flow 1/2, Overlay Edit/Validation, Undo, Shopping List persistence và responsive max-width `600 dp` đã được chốt ngày 22/10/2026.
 - Semantics, focus order, screen-reader labels và mô tả ảnh được giữ trong handoff làm yêu cầu downstream khi triển khai Flutter, không dùng làm blocker cho việc hoàn thiện tài liệu thiết kế.
 
 ## 6. Hướng dẫn review
