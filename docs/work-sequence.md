@@ -104,7 +104,7 @@
 
 ### Cuối ngày 9 — Chốt chức năng trình diễn
 
-- [ ] 3 Prototype Flows đã nối và được kiểm tra.
+- [x] 3 Prototype Flows đã nối và được kiểm tra; recovery/CTA navigation audit đạt `22/22` + `16/16` behaviors.
 - [ ] Flutter Handoff, README và PNG đã gần hoàn chỉnh.
 - [ ] Link và quyền truy cập đã được kiểm tra sơ bộ.
 

@@ -142,22 +142,22 @@ Page `06 Prototype` contains three named Figma Flow Starting Points:
 - `Flow 3 — Book Knowledge and Replace Meal`
 
 Prototype implementation evidence:
-- 42 interaction sources were wired with Figma prototype reactions.
+- Prototype reactions are wired across all three flows; the latest verification uses behavior-level acceptance checks rather than relying only on a raw reaction-source count.
 - Flow 1 happy path: `S01 -> S02 -> S03 -> Loading -> S04 -> S10`.
 - `S03 / Loading` uses `AFTER_TIMEOUT = 1000ms` and navigates to the S04 result.
 - Generation Error supports `Try again`, `Edit preferences` and `Cancel to Home` recovery.
 - Save Error supports retry and keep-reviewing recovery while preserving the generated-plan context.
 - Flow 2 happy path: `S04 -> S07 -> S08`.
 - S07 Edit uses real prototype navigation `OVERLAY` to a centered `328x448` dialog frame.
-- Invalid save uses `SWAP` to the validation dialog; tapping the quantity field returns to the editable dialog; Cancel closes the overlay.
-- Ingredient removal is represented by a long-press branch to the Undo Snackbar state; Undo returns to S07.
+- Edit Ingredient uses a deterministic overlay flow: valid `Save changes` closes the overlay, `Cancel` closes without applying changes, tapping the quantity field is used to demonstrate invalid input and swaps to the validation state, and validation Save does not close the overlay.
+- Ingredient removal can enter the Undo Snackbar state; `Undo` restores the S07 ingredient list.
 - Empty Ingredients returns to S04.
 - Flow 3 connects Weekly Plan, Recipe Details, Book Knowledge, Meal Alternatives and the updated/original-plan outcomes.
 - No Alternatives can review preferences or keep the original meal.
 - Update Error can retry or keep the original meal.
 - Back controls were wired to the logical previous screen throughout the prototype.
 
-For live demonstration without adding artificial error buttons to the product UI, the normal tap follows the happy path while an 800ms long-press on the relevant primary action opens the corresponding failure branch (generation, save, empty/no-alternative/update-error cases).
+After the 22/10/2026 prototype recovery pass, primary actions no longer use conflicting `MOUSE_DOWN`/long-press error branches. Happy-path actions use deterministic `ON_CLICK` navigation; failure screens remain dedicated prototype states with explicit recovery buttons so demo clicks do not get swallowed by component pressed-state reactions.
 
 ## 12. Final PNG exports
 
@@ -244,3 +244,27 @@ Verified intentional layout decisions:
 - Figma canvas organization remains aligned: Flow sections use consistent row baselines and 30dp inter-screen gaps; required states use a 3x3 grid with equal 30dp column gaps and 70dp row gaps; 412dp QA uses two aligned rows with equal 33dp column gaps.
 
 Final regression after these changes: 0 geometry issues, 0 text overflow findings, 0 sub-14sp custom text in audited deliverables/prototype, 0 scaled/rotated instances, all audited secondary CTAs match the 56dp component master, all S04 day targets use integer positions, and the three prototype Flow Starting Points plus Loading timeout/Edit Overlay remain intact.
+
+## 18. Prototype recovery regression and final behavior decisions — 22/10/2026
+
+A direct Figma reaction audit was run after the team reported that several buttons in Flow 1 and Flow 2 appeared clickable but did not navigate. Root cause: multiple primary actions combined `ON_CLICK` navigation with `MOUSE_DOWN`/`ON_PRESS -> CHANGE_TO` component behavior, so the click could be consumed by a pressed-state/error branch instead of the intended route.
+
+Corrections applied without adding new screens:
+- Removed conflicting `MOUSE_DOWN` error branches from Flow 1/2 primary actions.
+- Wired `S03 Generation Error`: Retry -> Loading; Edit Preferences -> S02.
+- Wired `S04 Save Error`: Retry -> Saved Plans on success; Keep Reviewing -> S04 with plan context preserved.
+- Wired `S06 Update Error`: Retry -> Meal Alternatives; Keep Original -> existing plan.
+- Wired `S07 Empty Ingredients`: Return to Plan -> S04.
+- Wired `S07 Undo Snackbar`: Undo -> restored S07 state; Create Shopping List remains navigable to S08.
+- Edit Ingredient overlay now has deterministic valid Save/Cancel behavior and a separate validation-state path that stays open on invalid Save.
+- `S10 Create New Plan` now navigates to S02.
+- Bottom navigation in Flow 1/2 uses transparent prototype hotspots on inactive tabs because nested NavigationItem instances cannot own top-level `NAVIGATE` reactions. Existing screens are reused: Home -> S01, Plan -> S04, Nutrition -> S07, Profile -> S02.
+
+Fresh behavior-level verification result:
+- Core recovery behaviors: `22/22` pass.
+- CTA/navigation behaviors: `16/16` pass.
+- Flow Starting Points: `3/3` remain present.
+- Shopping List rows: `6/6` use interactive `CHANGE_TO` checkbox variants.
+- `Reset component state` actions on S08 leave/return routes: `0`; therefore checkbox state is retained when returning to the same Shopping List in the prototype.
+
+Final product decision for handoff: Shopping List checkbox state is persisted per Shopping List, keyed by the list identity (for example `shoppingListId`), not as a single global checkbox state. Responsive content max-width for screens `>= 600 dp` is fixed at `600 dp`.

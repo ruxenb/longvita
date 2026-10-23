@@ -1,15 +1,15 @@
 # Screen Specifications
 
-> Trạng thái: **Draft — Final UI structure verified; prototype recovery pending**
+> Trạng thái: **Final UI structure and prototype recovery verified**
 >
-> Nguồn hiện có: `ux/persona.md`, `ux/user-flow.md`, `design/DESIGN.md` và `docs/task.md`.
+> Nguồn hiện có: `ux/persona.md`, `ux/user-flow.md`, `design/DESIGN.md`, `docs/task.md` và Figma Page 06 đã được kiểm tra trực tiếp ngày 22/10/2026.
 >
-> Cần đối chiếu lần cuối với Figma Page 03 và Page 06 trước khi đánh dấu hoàn tất.
+> Prototype Flow 1/2 đã được sửa để loại bỏ dead-end và trigger xung đột; recovery paths, overlay validation, Undo và bottom navigation đã được xác minh bằng reaction audit.
 
 ## 1. Quy ước chung
 
 - Nền tảng: ứng dụng Android, thiết kế chính ở `360 x 800 dp` và kiểm tra thêm ở `412 dp`.
-- Với màn hình rộng `>= 600 dp`, giới hạn chiều rộng nội dung để giữ khả năng đọc; giá trị cụ thể chờ Final UI xác nhận.
+- Với màn hình rộng `>= 600 dp`, căn giữa nội dung và giới hạn content max-width ở `600 dp` để giữ khả năng đọc.
 - Vùng chạm tối thiểu: `48 x 48 dp`.
 - Cỡ chữ nội dung tối thiểu: `14 sp`.
 - Độ tương phản: chữ thường `>= 4.5:1`; chữ lớn và thành phần điều khiển `>= 3:1`.
@@ -182,7 +182,7 @@
 - Back → `S07` hoặc màn hình nguồn.
 - Điều hướng chính → các destination cấp cao theo Final UI.
 
-**Trạng thái:** Default, Partially completed, Completed và Empty. Quy tắc lưu trạng thái checkbox chờ nhóm xác nhận.
+**Trạng thái:** Default, Partially completed, Completed và Empty. Trạng thái checkbox được lưu theo từng Shopping List; khi người dùng rời S08 rồi quay lại đúng danh sách đó, các mục đã check/uncheck được giữ nguyên. Danh sách mới có state riêng, không dùng chung trạng thái với danh sách khác.
 
 ### S09 — Book Knowledge
 
@@ -227,5 +227,6 @@
 - [x] Bộ icon component và 10 PNG Final UI cuối đã có trong repository; ảnh món ăn dùng chế độ fill, không stretch.
 - [x] Design System xác định theme hiện tại là **Light**; Dark mode không thuộc phạm vi bàn giao hiện tại.
 - [x] Transition `S03 Loading` → `S04 Result` dùng `AFTER_TIMEOUT = 1000 ms`.
-- [x] Nội dung và bố cục Dialog, Snackbar, Empty/Error state đã được kiểm tra trực quan; interaction recovery vẫn theo dõi riêng trong Prototype checklist.
-- [ ] Quy tắc lưu trạng thái Shopping List.
+- [x] Nội dung và bố cục Dialog, Snackbar, Empty/Error state đã được kiểm tra trực quan.
+- [x] Prototype recovery đã được kiểm tra trực tiếp: `22/22` core recovery behaviors và `16/16` CTA/navigation behaviors pass; không còn trigger `MOUSE_DOWN` xung đột trên các primary action Flow 1/2.
+- [x] Quy tắc lưu trạng thái Shopping List: checkbox state được persist theo từng Shopping List; prototype không dùng `Reset component state` trên các đường rời/quay lại S08.
