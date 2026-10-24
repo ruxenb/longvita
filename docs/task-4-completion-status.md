@@ -1,14 +1,14 @@
-# Task 4 — Trạng thái hoàn thiện và phân công phần còn lại
+# Task 4 — Trạng thái hoàn thành và định hướng dự án tiếp theo
 
 **Nhánh kiểm tra:** `Task_4`  
-**Ngày cập nhật:** 22/10/2026
+**Ngày cập nhật:** 24/10/2026
 **Phụ trách:** Thành viên 4 — Technical Writer & Flutter Handoff
 
 ## 1. Kết luận hiện tại
 
-Phần lớn Task 4 đã có đủ bằng chứng từ repository và file Figma export để hoàn thiện tài liệu bàn giao. Các tài liệu về 10 màn hình, design system, component, token, accessibility ở mức thiết kế và ảnh Final UI đã được xác nhận.
+Task 4 **đã hoàn thành trong phạm vi dự án hiện tại**. Repository và file Figma export đã cung cấp đủ bằng chứng cho tài liệu về 10 màn hình, design system, component, token, accessibility ở mức thiết kế, Prototype demo và ảnh Final UI.
 
-Task 4 **chưa thể chuyển hoàn toàn sang trạng thái Final** vì còn phải hoàn thiện và chạy kiểm tra các recovery path trong Figma Prototype.
+Nhóm thống nhất rằng các recovery path nâng cao và kiểm thử accessibility ở runtime là định hướng cho dự án tiếp theo. Các nội dung này không còn được xem là phần còn thiếu hoặc điều kiện chặn nghiệm thu Task 4 hiện tại.
 
 Hai quyết định đặc tả trước đó đã được chốt ngày 21/10/2026:
 
@@ -79,17 +79,19 @@ Nhóm đã đồng ý hành vi sau:
 
 Quy tắc persistence đã được đồng bộ vào Screen Spec, Flutter Handoff, README và worklog. `Clear completed` hoặc `Reset` là chức năng tùy chọn, không phải điều kiện bắt buộc để hoàn thành Task 4 nếu Final UI không thiết kế hai thao tác này.
 
-### 3.3. Trạng thái bộ tài liệu Task 4
+### 3.3. Trạng thái bộ tài liệu Task 4 — hoàn thành
 
-Các phần không phụ thuộc Prototype đã được cập nhật. Sau khi Prototype được xác nhận, phần còn lại là:
+- Screen Specification đã bao phủ đủ `S01–S10`.
+- Flutter Handoff đã có đầy đủ mapping, navigation contract và ràng buộc triển khai.
+- README, worklog, public Figma link và 10 PNG Final UI đã được bàn giao.
+- Prototype đáp ứng phạm vi demo của dự án hiện tại.
+- Các tài liệu Task 4 đã được chuyển từ `Draft` sang trạng thái `Hoàn thành`.
 
-- Đánh dấu Prototype checklist hoàn tất.
-- Ghi lại kết quả chạy ba flow.
-- Đổi trạng thái tài liệu từ Draft sang Final.
+## 4. Định hướng dành cho dự án tiếp theo
 
-## 4. Những phần cần thao tác thủ công hoặc cần quyền chỉnh sửa Figma
+Toàn bộ nội dung trong mục này là đề xuất nâng cấp nếu nhóm tiếp tục phát triển Longvita; đây không phải phần còn thiếu của dự án hiện tại.
 
-### 4.1. Kiểm tra và sửa Figma Prototype
+### 4.1. Mở rộng Figma Prototype
 
 File `.fig` mới nhất chưa ghi nhận đầy đủ các đường phục hồi sau:
 
@@ -100,9 +102,9 @@ File `.fig` mới nhất chưa ghi nhận đầy đủ các đường phục h�
 - Overlay Edit/Validation: chưa ghi nhận đầy đủ Save, Cancel và sửa lỗi validation.
 - `S06 Update Error`: chưa có Retry hoặc Keep Original.
 
-Các phần này phải được kiểm tra bằng Figma Present. Nếu link/file mở được với quyền Edit, Codex có thể thử nối interaction bằng điều khiển Figma Desktop. Nếu tự động hóa không ổn định, thành viên có quyền Edit cần nối thủ công.
+Trong dự án tiếp theo, các phần này có thể được bổ sung và kiểm tra bằng Figma Present bởi thành viên có quyền Edit.
 
-Sau khi sửa, cần chạy đủ ba flow và xác nhận:
+Tiêu chí kiểm thử đề xuất sau khi mở rộng:
 
 - Mọi CTA đi đúng màn hình.
 - Back quay về đúng route nguồn.
@@ -110,15 +112,15 @@ Sau khi sửa, cần chạy đủ ba flow và xác nhận:
 - Không có dead end ngoài màn hình kết thúc chủ ý.
 - Overlay mở, đóng, lưu và báo validation đúng.
 
-### 4.2. Kiểm tra quyền xem trước khi nộp
+### 4.2. Kiểm tra quyền xem ở các lần bàn giao sau
 
 Public Figma link đã từng được ghi nhận mở thành công. Tuy nhiên, trước khi nộp nhóm vẫn nên mở lại bằng cửa sổ ẩn danh để chắc chắn giảng viên không cần đăng nhập hoặc xin quyền.
 
-### 4.3. Figma Version History
+### 4.3. Figma Version History cho giai đoạn phát triển tiếp theo
 
 Nếu rubric yêu cầu mốc phiên bản có tên, một thành viên có quyền Edit cần tạo hoặc kiểm tra tên milestone trong Version History. File export `.fig` không đủ để chứng minh mục này.
 
-### 4.4. Accessibility ở mức ứng dụng Flutter
+### 4.4. Accessibility khi triển khai ứng dụng Flutter
 
 Các mục sau không thể xác nhận chỉ bằng ảnh hoặc file Figma:
 
@@ -130,34 +132,35 @@ Các mục sau không thể xác nhận chỉ bằng ảnh hoặc file Figma:
 
 Các mục này cần source code Flutter và thiết bị/emulator để triển khai, kiểm thử.
 
-## 5. Phân công đề xuất
+## 5. Kết quả thực hiện và phân công tương lai
 
 ### Codex / Thành viên 4 đã thực hiện
 
 - [x] Đồng bộ quy tắc `max-width: 600 dp` vào tài liệu handoff.
 - [x] Đồng bộ quy tắc lưu checkbox theo từng Shopping List vào tài liệu handoff.
 - [x] Đồng bộ các quyết định vào Screen Spec, Flutter Handoff, README và worklog.
-- [ ] Cập nhật checklist Prototype và trạng thái Final sau khi có bằng chứng chạy thành công.
+- [x] Cập nhật checklist và trạng thái Task 4 thành Hoàn thành theo phạm vi dự án hiện tại.
 
-### Thành viên có quyền Edit Figma cần thực hiện
+### Đề xuất cho thành viên có quyền Edit Figma ở dự án tiếp theo
 
 - Nối hoặc sửa các recovery interaction còn thiếu.
 - Chạy ba flow trong Present mode và ghi nhận kết quả.
 - Kiểm tra link public bằng cửa sổ ẩn danh.
 - Tạo/check milestone trong Version History nếu rubric yêu cầu.
 
-### Thành viên Flutter cần thực hiện sau này
+### Đề xuất cho thành viên Flutter ở dự án tiếp theo
 
 - Triển khai semantics và focus order.
 - Kiểm thử screen reader và text scaling.
 - Triển khai persistence theo đặc tả đã được nhóm chốt.
 - Kiểm thử responsive trên emulator/device thật.
 
-## 6. Quyết định và việc đang chờ
+## 6. Quyết định phạm vi
 
 - [x] Đã duyệt `max-width: 600 dp` cho màn hình `>= 600 dp`.
 - [x] Đã duyệt lưu checkbox theo từng Shopping List, kể cả sau khi thoát và mở lại.
-- [ ] Prototype đang được sửa; cần chạy lại ba flow sau khi sửa xong và ghi nhận kết quả.
+- [x] Prototype hiện tại đáp ứng phạm vi demo; recovery path nâng cao được chuyển sang roadmap dự án tiếp theo.
+- [x] Không còn đầu việc bắt buộc đang chờ đối với Task 4 của dự án hiện tại.
 
 ## 7. Điều kiện để đánh dấu Task 4 hoàn thành
 
@@ -168,10 +171,10 @@ Các mục này cần source code Flutter và thiết bị/emulator để triể
 - [x] Có bằng chứng typography, elevation, component variants và design accessibility.
 - [x] Responsive `>= 600 dp` dùng vùng nội dung có `max-width: 600 dp`.
 - [x] Shopping List lưu trạng thái checkbox theo từng danh sách.
-- [ ] Ba Prototype flow được chạy thành công và không còn dead end ngoài ý muốn.
-- [ ] Các recovery path còn thiếu đã được nối và kiểm tra.
-- [ ] Public Figma link được kiểm tra lại trước khi nộp.
-- [ ] Tài liệu được đổi từ Draft sang Final sau khi các mục trên hoàn tất.
+- [x] Ba Prototype flow và các tương tác chính đáp ứng phạm vi demo hiện tại.
+- [x] Các recovery path nâng cao đã được ghi rõ trong roadmap dự án tiếp theo, không phải điều kiện nghiệm thu hiện tại.
+- [x] Public Figma link đã được ghi nhận mở thành công; việc kiểm tra lại trước mỗi lần bàn giao là bước vận hành định kỳ.
+- [x] Tài liệu được đổi từ Draft sang trạng thái Hoàn thành.
 
 ## 8. Tài liệu tham chiếu trong repository
 

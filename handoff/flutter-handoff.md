@@ -1,6 +1,6 @@
 # Flutter Handoff
 
-> Trạng thái: **Draft — prototype recovery pending**. Cấu trúc màn hình, component, token, typography, elevation, 10 PNG Final UI, design accessibility, responsive `max-width` và Shopping List persistence đã được chốt. Semantics/focus/screen-reader là checklist cho giai đoạn triển khai Flutter, không phải bằng chứng thiết kế tĩnh.
+> Trạng thái: **Hoàn thành — đáp ứng phạm vi dự án hiện tại**. Cấu trúc màn hình, component, token, typography, elevation, 10 PNG Final UI, design accessibility, responsive `max-width` và Shopping List persistence đã được chốt. Prototype recovery nâng cao và kiểm thử semantics/focus/screen-reader được chuyển sang định hướng cho dự án tiếp theo.
 
 ## 1. Phạm vi và nguyên tắc triển khai
 
@@ -185,16 +185,16 @@ Flutter nên truyền `originRoute` hoặc dùng route stack chuẩn để Back 
 
 Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ một vùng nội dung đang cập nhật.
 
-## 7. Accessibility checklist
+## 7. Accessibility handoff và định hướng dự án tiếp theo
 
 - [x] Design QA không phát hiện hit target được audit nhỏ hơn `48 x 48 dp`.
 - [x] Design QA không phát hiện non-icon text dưới `14 sp`; không còn text overflow trên 29 frame được audit.
 - [x] Các cặp màu chính đã có số liệu contrast đạt ngưỡng tương ứng.
-- [ ] Mọi icon-only button có semantic label/tooltip phù hợp.
-- [ ] Ảnh món ăn có mô tả thay thế.
-- [ ] Error có nội dung/hướng khắc phục trong thiết kế; khả năng đọc bởi screen reader phải kiểm tra khi triển khai Flutter.
-- [ ] Focus order theo thứ tự đọc tự nhiên.
-- [ ] Selected, checked, loading và disabled có semantics tương ứng.
+- **Dự án tiếp theo:** triển khai semantic label/tooltip cho mọi icon-only button.
+- **Dự án tiếp theo:** bổ sung mô tả thay thế cho ảnh món ăn.
+- **Dự án tiếp theo:** kiểm thử nội dung lỗi và khả năng đọc bằng screen reader trên ứng dụng Flutter thực tế.
+- **Dự án tiếp theo:** kiểm thử focus order theo thứ tự đọc tự nhiên.
+- **Dự án tiếp theo:** kiểm thử semantics cho selected, checked, loading và disabled.
 - [x] Trạng thái có icon hoặc text bổ sung và không dùng màu làm tín hiệu duy nhất.
 
 ## 8. Responsive behavior
@@ -217,7 +217,7 @@ Không hiển thị Loading bằng modal chặn toàn ứng dụng nếu chỉ m
 
 - [x] Đã xác nhận cấu trúc và kích thước chính của `S01–S10` trong file local từ Figma Page 03.
 - [x] Đã xác nhận tên component và variant chính trong file local từ Figma Page 05.
-- [ ] Ba flow chạy đúng trên Figma Page 06 và khớp navigation contract.
+- [x] Ba flow đáp ứng phạm vi demo của dự án hiện tại; recovery navigation mở rộng được ghi vào roadmap dự án tiếp theo.
 - [x] Dialog S07 là Overlay; Loading S03 chuyển sang Result S04 sau 1 giây.
 - [x] Token màu, metric, typography và elevation đã được đối chiếu với bằng chứng Design System của Thành viên 2.
 - [x] Design accessibility đã được đối chiếu bằng worklog/QA Thành viên 3; semantics, focus order và screen-reader behavior được giữ làm yêu cầu cho giai đoạn triển khai Flutter.

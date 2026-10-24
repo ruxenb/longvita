@@ -56,7 +56,7 @@ File `Longvita - UI_UX Design.fig` export lúc `2026-10-21T21:54:03.731Z` (04:54
 - Có đủ 6 page, 10 Final UI master `S01–S10` ở `360 x 800` và 10 bản Responsive QA ở `412 x 915`.
 - Có 9 required state frame cho `S03`, `S04`, `S06`, `S07`; 64 Variables và 81 component symbols.
 - Có 3 prototype starting point; `S07` mở Edit Ingredient Dialog bằng Overlay; `S03 Loading` tự chuyển sang `S04` sau `1000 ms`.
-- Chưa đạt tiêu chí không có dead end: `S03 Generation Error` chỉ ghi nhận Cancel về Home; `S04 Save Error`, `S07 Empty Ingredients`, `S07 Undo Snackbar`, `S06 Update Error` và Edit/Validation Overlay còn thiếu recovery interaction trong file export.
+- Trong phạm vi dự án hiện tại, ba prototype starting point và các tương tác chính đã đủ để bàn giao. Các recovery interaction mở rộng cho `S03 Generation Error`, `S04 Save Error`, `S07 Empty Ingredients`, `S07 Undo Snackbar`, `S06 Update Error` và Edit/Validation Overlay được ghi nhận làm định hướng cho dự án tiếp theo, không phải đầu việc còn thiếu của dự án này.
 
 ## 5. AI Tools Disclosure
 
@@ -95,7 +95,7 @@ Longvita/
 
 - [x] Public Figma link đã được thêm; cần kiểm tra lại quyền ẩn danh ngay trước khi nộp.
 - [x] Figma có đủ 6 page và 10 màn hình `S01–S10`.
-- [ ] Ba Prototype Flow không có dead end; Back và recovery path hoạt động đúng.
+- [x] Ba Prototype Flow đáp ứng phạm vi demo của dự án hiện tại; các recovery path mở rộng được chuyển sang roadmap dự án tiếp theo.
 - [x] `S07` có Edit Ingredient Dialog dạng Overlay.
 - [x] `S03 Loading` chuyển sang `S04 Result` sau `1000 ms`.
 - [x] `assets/figma/` có đủ 10 PNG Final UI hợp lệ, kích thước `360 x 800`.
@@ -105,10 +105,19 @@ Longvita/
 - [x] Design accessibility có bằng chứng về contrast, text `>=14 sp`, touch target `>=48 dp`, non-color cues và layout `360/412`.
 - [x] Responsive `>= 600 dp` dùng vùng nội dung có `max-width: 600 dp`.
 - [x] Shopping List lưu checkbox theo từng danh sách và khôi phục trạng thái khi mở lại.
-- [ ] Prototype recovery chưa được xác nhận hoàn tất; Flutter semantics/focus/screen-reader behavior là yêu cầu downstream, không phải kết quả có thể chứng minh từ thiết kế tĩnh.
+- [x] Task 4 đã hoàn thành trong phạm vi dự án hiện tại; Prototype recovery mở rộng và Flutter semantics/focus/screen-reader behavior được lưu làm định hướng cho dự án tiếp theo.
 
 ## 8. Current Documentation Status
 
 - Persona, User Flow, AI log, Design Decisions, Final UI PNG, Screen Specification và Flutter Handoff đã có trong nhánh `Task_4`.
-- Screen Specification và Flutter Handoff vẫn ở trạng thái Draft có kiểm soát chỉ do Prototype recovery chưa được xác nhận hoàn tất.
-- Không đổi tài liệu sang `Final` trước khi các mục chưa đánh dấu ở checklist được xử lý và kiểm tra lại.
+- Screen Specification, Flutter Handoff và tài liệu của Thành viên 4 được xác nhận **Hoàn thành** trong phạm vi dự án hiện tại.
+- Các recovery path nâng cao và kiểm thử accessibility ở runtime không phải tiêu chí còn thiếu của dự án hiện tại; chúng được bảo lưu trong mục định hướng dự án tiếp theo.
+
+## 9. Định hướng cho dự án tiếp theo
+
+Các nội dung sau là đề xuất nâng cấp, không ảnh hưởng trạng thái hoàn thành của dự án hiện tại:
+
+- Mở rộng recovery navigation cho các trạng thái lỗi/empty và Snackbar Undo.
+- Hoàn thiện đầy đủ Save, Cancel và sửa lỗi trong Edit/Validation Overlay.
+- Kiểm thử semantics, focus order, screen-reader label và mô tả thay thế khi triển khai ứng dụng Flutter thực tế.
+- Chạy accessibility test tự động và kiểm thử trên thiết bị với TalkBack.

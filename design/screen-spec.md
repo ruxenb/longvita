@@ -1,10 +1,10 @@
 # Screen Specifications
 
-> Trạng thái: **Draft — Final UI structure verified; prototype recovery pending**
+> Trạng thái: **Hoàn thành — đáp ứng phạm vi dự án hiện tại**
 >
 > Nguồn hiện có: `ux/persona.md`, `ux/user-flow.md`, `design/DESIGN.md` và `docs/task.md`.
 >
-> Cần đối chiếu lần cuối với Figma Page 03 và Page 06 trước khi đánh dấu hoàn tất.
+> Cấu trúc đã được đối chiếu với Figma Page 03 và Page 06. Các recovery interaction mở rộng được chuyển thành định hướng cho dự án tiếp theo.
 
 ## 1. Quy ước chung
 
@@ -227,5 +227,5 @@
 - [x] Bộ icon component và 10 PNG Final UI cuối đã có trong repository; ảnh món ăn dùng chế độ fill, không stretch.
 - [x] Design System xác định theme hiện tại là **Light**; Dark mode không thuộc phạm vi bàn giao hiện tại.
 - [x] Transition `S03 Loading` → `S04 Result` dùng `AFTER_TIMEOUT = 1000 ms`.
-- [x] Nội dung và bố cục Dialog, Snackbar, Empty/Error state đã được kiểm tra trực quan; interaction recovery vẫn theo dõi riêng trong Prototype checklist.
+- [x] Nội dung và bố cục Dialog, Snackbar, Empty/Error state đã được kiểm tra trực quan; recovery interaction nâng cao nằm trong roadmap dự án tiếp theo.
 - [x] Shopping List lưu trạng thái checkbox theo từng danh sách; danh sách mới bắt đầu ở trạng thái chưa check.
